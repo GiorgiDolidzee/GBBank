@@ -42,7 +42,7 @@
             android:textSize="26sp" />
 
         <TextView
-            android:layout_width="300dp"
+            android:layout_width="301dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/gbbank_description"
