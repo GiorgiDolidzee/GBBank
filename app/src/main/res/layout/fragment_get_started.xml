@@ -28,8 +28,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="179dp"
-            android:layout_height="157dp"
+            android:layout_width="180dp"
+            android:layout_height="158dp"
             android:contentDescription="@string/logo"
             android:background="@drawable/logo" />
 
