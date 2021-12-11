@@ -24,12 +24,17 @@ class RegisterViewModel @Inject constructor(private val repository: RegisterRepo
                repeatPassword: String
     ) =
         viewModelScope.launch {
+            registerResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
                 registerResponse.emit(
-                    repository.register(firstName, lastName, email, password, repeatPassword)
+                    repository.register(
+                        firstName,
+                        lastName,
+                        email,
+                        password,
+                        repeatPassword)
                 )
             }
         }
-
 
 }

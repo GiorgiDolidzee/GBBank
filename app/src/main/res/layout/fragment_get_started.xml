@@ -60,6 +60,7 @@
         android:textSize="17sp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppinsmedium"
+        android:letterSpacing="0"
         android:background="@drawable/primary_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

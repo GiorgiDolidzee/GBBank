@@ -1,14 +1,16 @@
 package com.example.gbbank.ui.register
 
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gbbank.databinding.FragmentRegisterBinding
 import com.example.gbbank.extensions.showSnackBar
-import com.example.gbbank.repositories.RegisterRepository
 import com.example.gbbank.ui.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
+import com.example.gbbank.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
@@ -17,38 +19,46 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun start() {
         listener()
+        registration()
     }
 
     private fun listener() {
-
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
-
-        binding.btnSignUp.setOnClickListener {
-            registration()
-        }
-
     }
 
 
     private fun registration() {
+        with(binding) {
+            btnSignUp.setOnClickListener {
+                val firstName = etFirstName.text.toString()
+                val lastName = etLastName.text.toString()
+                val email = etEmail.text.toString()
+                val password = etPassword.text.toString()
+                val repeatPassword = etRepeatPassword.text.toString()
 
-        val firstName = binding.etFirstName.text.toString()
-        val lastName = binding.etLastName.text.toString()
-        val email = binding.etEmail.text.toString()
-        val password = binding.etPassword.text.toString()
-        val repeatPassword = binding.etRepeatPassword.text.toString()
-
-        if(firstName.trim().isEmpty() || lastName.trim().isEmpty() ||
-            email.trim().isEmpty() || password.trim().isEmpty() ||
-            repeatPassword.trim().isEmpty()) {
-            view?.showSnackBar("Fill all the fields", Snackbar.LENGTH_LONG)
-        } else {
-            viewModel.signUp(firstName, lastName, email, password, repeatPassword)
-            findNavController().popBackStack()
+                viewLifecycleOwner.lifecycleScope.launch {
+                    viewModel.signUp(firstName, lastName, email, password, repeatPassword)
+                    viewModel.registerResponse.collect {
+                        when (it) {
+                            is Resource.Success -> {
+                                progressBar.isVisible = false
+                                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+                            }
+                            is Resource.Error -> {
+                                progressBar.isVisible = false
+                                view?.showSnackBar(it.errorMessage.toString())
+                            }
+                            is Resource.Loading -> {
+                                progressBar.isVisible = true
+                            }
+                        }
+                    }
+                }
+            }
         }
-
     }
+
 
 }

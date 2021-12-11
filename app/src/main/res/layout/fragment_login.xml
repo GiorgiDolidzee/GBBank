@@ -62,6 +62,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
+                android:inputType="textPassword"
                 android:layout_height="wrap_content"
                 android:lines="1" />
 
@@ -85,6 +86,7 @@
             android:textAllCaps="false"
             android:textSize="17sp"
             android:textColor="@color/white"
+            android:letterSpacing="0"
             android:fontFamily="@font/poppinsmedium"
             android:background="@drawable/primary_button"/>
 
@@ -113,5 +115,16 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:alpha="0.9"
+        android:elevation="15dp"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_shape"
+        android:padding="10dp" />
 
 </FrameLayout>

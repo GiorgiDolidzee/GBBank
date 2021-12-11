@@ -1,6 +1,7 @@
 package com.example.gbbank.ui.getstarted
 
 import android.content.Context
+import android.view.animation.AnimationUtils
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -8,6 +9,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.gbbank.R
 import com.example.gbbank.databinding.FragmentGetStartedBinding
 import com.example.gbbank.ui.base.BaseFragment
 import kotlinx.coroutines.Dispatchers.IO

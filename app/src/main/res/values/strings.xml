@@ -21,4 +21,9 @@
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="repeat_password">Repeat password</string>
+    <string name="activation_link_will_be_sent_to_your_e_mail">Activation link will be sent to your e-mail</string>
+    <string name="reset_your_password">Reset your password</string>
+    <string name="send">Send</string>
+    <string name="welcome_back">Welcome back,</string>
+    <string name="name">Name!</string>
 </resources>

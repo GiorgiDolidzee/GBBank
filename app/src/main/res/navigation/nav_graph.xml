@@ -12,6 +12,10 @@
         tools:layout="@layout/fragment_get_started" >
         <action
             android:id="@+id/action_getStartedFragment_to_loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
@@ -25,15 +29,31 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.gbbank.ui.register.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="com.example.gbbank.ui.resetpassword.ResetPasswordFragment"
         android:label="fragment_reset_password"
-        tools:layout="@layout/fragment_reset_password" />
+        tools:layout="@layout/fragment_reset_password" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gbbank.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
