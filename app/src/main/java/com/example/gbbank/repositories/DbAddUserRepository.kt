@@ -14,7 +14,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class DatabaseRepository @Inject constructor(
+class DbAddUserRepository @Inject constructor(
     private val responseHandler: ResponseHandler,
     private val db: FirebaseDatabase
 ) {
@@ -30,6 +30,5 @@ class DatabaseRepository @Inject constructor(
                 responseHandler.handleException(e)
             }
         }
-
 
 }

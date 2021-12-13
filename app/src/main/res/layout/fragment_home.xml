@@ -21,12 +21,15 @@
             android:fontFamily="@font/poppinsregular"
             android:text="@string/welcome_back"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsmedium"
             android:text="@string/name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,19 +37,6 @@
             android:layout_height="215dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/card_shape">
-
-            <TextView
-                android:id="@+id/tvCardNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/poppinsmedium"
-                android:text="0000 0000 0000 0000"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="60dp"
@@ -58,18 +48,19 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="₾ "
+                    android:text="@string/gel"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
 
@@ -78,82 +69,72 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="0.00"
+                    android:text="@string/_0_00"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/full_name"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout2" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
+            android:id="@+id/btnDeposit"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:weightSum="2"
-            android:layout_height="wrap_content" >
+            android:padding="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_shape"
+            android:weightSum="2">
 
-            <LinearLayout
-                android:id="@+id/btnDeposit"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="10dp"
-                android:orientation="vertical"
-                android:gravity="center_vertical"
-                android:paddingStart="20dp"
-                android:background="@drawable/rectangle_shape"
-                android:layout_height="110dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_deposit" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_deposit"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:textSize="17sp"
-                    android:text="Deposit"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/btnTransfer"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingStart="20dp"
-                android:background="@drawable/rectangle_shape"
-                android:layout_height="110dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_transfer"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:textSize="17sp"
-                    android:text="Transfer"/>
-
-
-            </LinearLayout>
-
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/deposit"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:alpha="0.9"
+        android:background="@drawable/rectangle_shape"
+        android:elevation="15dp"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

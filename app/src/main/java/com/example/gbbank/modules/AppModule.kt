@@ -1,9 +1,7 @@
 package com.example.gbbank.modules
 
-import com.example.gbbank.repositories.DatabaseRepository
-import com.example.gbbank.repositories.LoginRepository
-import com.example.gbbank.repositories.RegisterRepository
-import com.example.gbbank.repositories.ResetPasswordRepository
+import com.example.gbbank.repositories.*
+import com.example.gbbank.ui.home.HomeFragment
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -20,7 +18,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRegisterRepository(
-        auth: FirebaseAuth, handler: ResponseHandler, repository: DatabaseRepository)
+        auth: FirebaseAuth, handler: ResponseHandler, repository: DbAddUserRepository)
     : RegisterRepository = RegisterRepository(auth, handler, repository)
 
     @Provides
@@ -37,9 +35,21 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDatabaseRepository(
+    fun provideAddUserDbRepository(
         handler: ResponseHandler, db: FirebaseDatabase
-    ) : DatabaseRepository = DatabaseRepository(handler, db)
+    ) : DbAddUserRepository = DbAddUserRepository(handler, db)
+
+    @Provides
+    @Singleton
+    fun provideDbCallBackRepository(
+        auth: FirebaseAuth, db: FirebaseDatabase, handler: ResponseHandler
+    ) : DbCallBackRepository = DbCallBackRepository(auth, db, handler)
+
+    @Provides
+    @Singleton
+    fun provideAddBalanceRepository(
+        auth: FirebaseAuth, db: FirebaseDatabase, handler: ResponseHandler
+    ) : DbAddBalanceRepository = DbAddBalanceRepository(auth, db, handler)
 
     @Provides
     @Singleton
