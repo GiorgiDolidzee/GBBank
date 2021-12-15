@@ -12,11 +12,13 @@
         tools:layout="@layout/fragment_get_started" >
         <action
             android:id="@+id/action_getStartedFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
             app:enterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
-            app:destination="@id/loginFragment" />
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -31,7 +33,9 @@
             app:destination="@id/resetPasswordFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -67,6 +71,26 @@
         tools:layout="@layout/fragment_deposit" >
         <action
             android:id="@+id/action_depositFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="oldBalance"
+            app:argType="float" />
     </fragment>
+    <fragment
+        android:id="@+id/exchangeFragment"
+        android:name="com.example.gbbank.ui.exchange.ExchangeFragment"
+        android:label="fragment_exchange"
+        tools:layout="@layout/fragment_exchange" />
+    <fragment
+        android:id="@+id/cryptoFragment"
+        android:name="com.example.gbbank.ui.crypto.CryptoFragment"
+        android:label="fragment_crypto"
+        tools:layout="@layout/fragment_crypto" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.gbbank.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

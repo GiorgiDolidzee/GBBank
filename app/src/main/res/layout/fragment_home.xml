@@ -30,7 +30,7 @@
             android:textSize="18sp"
             android:textColor="@color/black"
             android:fontFamily="@font/poppinsmedium"
-            android:text="@string/name" />
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,8 +39,8 @@
             android:background="@drawable/card_shape">
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="50dp"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
                 android:layout_marginEnd="5dp"
                 android:background="@mipmap/cardchip"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -69,8 +69,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="@string/_0_00"
                     android:textColor="@color/white"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:text="@string/_0_0"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -81,7 +83,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/poppinsregular"
-                android:text="@string/full_name"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"

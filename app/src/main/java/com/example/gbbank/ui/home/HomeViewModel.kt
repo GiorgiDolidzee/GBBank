@@ -2,18 +2,14 @@ package com.example.gbbank.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gbbank.`interface`.FirebaseCallback
 import com.example.gbbank.model.User
-import com.example.gbbank.repositories.DbCallBackRepository
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.connection.RequestResultCallback
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -23,22 +19,44 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: DbCallBackRepository) : ViewModel() {
+    private val auth: FirebaseAuth,
+    private val db: FirebaseDatabase,
+    private val responseHandler: ResponseHandler
+) : ViewModel() {
 
-    val callBackResponse = MutableSharedFlow<Resource<User?>>()
+    val realTimeResponse = MutableSharedFlow<Resource<User>>()
+    val lastBalanceValue = MutableSharedFlow<Double>()
 
-//    fun getResponse(callback: FirebaseCallback) {
-//        viewModelScope.launch {
-//            repository.getResponse(callback)
-//        }
-//
-//    }
+    init {
+        realTimeCallBack()
+    }
 
-    fun callBack()
-    = viewModelScope.launch {
-        callBackResponse.emit(Resource.Loading())
-        withContext(Dispatchers.IO) {
-            callBackResponse.emit(repository.callBack())
+     fun realTimeCallBack() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    realTimeResponse.emit(Resource.Loading())
+                    val currentUser = auth.currentUser?.uid
+                    val dbReference = db.getReference("UserInfo")
+
+                    dbReference.child(currentUser!!).addValueEventListener(object: ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            viewModelScope.launch {
+                                val user = snapshot.getValue(User::class.java)
+                                responseHandler.handleSuccess(realTimeResponse.emit(Resource.Success(user!!)))
+                                lastBalanceValue.emit(user.balance!!)
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            responseHandler.handleException<Resource<User>>(error.toException())
+                        }
+                    })
+
+                } catch (e: Exception) {
+                    responseHandler.handleException<Resource<User>>(e)
+                }
+            }
         }
     }
 

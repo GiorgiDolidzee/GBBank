@@ -1,7 +1,6 @@
 package com.example.gbbank.modules
 
 import com.example.gbbank.repositories.*
-import com.example.gbbank.ui.home.HomeFragment
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -38,12 +37,6 @@ object AppModule {
     fun provideAddUserDbRepository(
         handler: ResponseHandler, db: FirebaseDatabase
     ) : DbAddUserRepository = DbAddUserRepository(handler, db)
-
-    @Provides
-    @Singleton
-    fun provideDbCallBackRepository(
-        auth: FirebaseAuth, db: FirebaseDatabase, handler: ResponseHandler
-    ) : DbCallBackRepository = DbCallBackRepository(auth, db, handler)
 
     @Provides
     @Singleton
