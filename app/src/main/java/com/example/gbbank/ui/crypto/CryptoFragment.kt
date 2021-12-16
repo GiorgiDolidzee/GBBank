@@ -1,6 +1,5 @@
 package com.example.gbbank.ui.crypto
 
-import android.util.Log.d
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,7 +11,7 @@ import com.example.gbbank.model.Crypto
 import com.example.gbbank.ui.base.BaseFragment
 import com.example.gbbank.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,13 +40,11 @@ class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding
                 when (it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
-                        d("TAG", "${it.data}")
                         initRecyclerView(it.data)
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
-                        view?.showSnackBar("Unexpected error occurred.")
-                        d("TAG", "${it.errorMessage}")
+                        view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
                         binding.progressBar.isVisible = true

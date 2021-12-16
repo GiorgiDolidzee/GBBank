@@ -26,6 +26,7 @@ class ProfileViewModel @Inject constructor(
 
 
     val realTimeResponse = MutableSharedFlow<Resource<User>>()
+    val signOutResponse = MutableSharedFlow<Resource<Unit>>()
 
     init {
         realTimeCallBack()
@@ -54,6 +55,19 @@ class ProfileViewModel @Inject constructor(
 
                 } catch (e: Exception) {
                     responseHandler.handleException<Resource<User>>(e)
+                }
+            }
+        }
+    }
+
+    fun signOut() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                try {
+                    signOutResponse.emit(Resource.Loading())
+                    responseHandler.handleSuccess(signOutResponse.emit(Resource.Success(auth.signOut())))
+                } catch (e: java.lang.Exception) {
+                    responseHandler.handleException<Resource<Unit>>(e)
                 }
             }
         }

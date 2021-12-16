@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.gbbank.repositories.LoginRepository
 import com.example.gbbank.utils.Resource
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -15,9 +16,15 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val repository: LoginRepository,
+    private val auth: FirebaseAuth
 ) : ViewModel() {
 
     val loginResponse = MutableSharedFlow<Resource<AuthResult>>()
+    var logged = MutableSharedFlow<Resource<Boolean>>()
+
+    init {
+        checkIfLoggedIn()
+    }
 
     fun signIn(
         email: String,
@@ -33,5 +40,18 @@ class LoginViewModel @Inject constructor(
                 )
             }
         }
+
+    private fun checkIfLoggedIn() {
+        viewModelScope.launch {
+            logged.emit(Resource.Loading())
+            withContext(Dispatchers.IO) {
+                try {
+                    logged.emit(Resource.Success(auth.currentUser==null))
+                } catch (e: Exception) {
+                    logged.emit(Resource.Error(e.toString()))
+                }
+            }
+        }
+    }
 
 }

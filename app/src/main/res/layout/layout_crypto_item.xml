@@ -3,19 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="65dp"
     android:background="@drawable/rectangle_shape"
-    android:backgroundTint="@color/background"
-    tools:backgroundTint="@color/teal_200"
-    android:layout_marginStart="5dp"
-    android:layout_marginEnd="5dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginBottom="7dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginTop="10dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivImage"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:padding="6dp"
+        android:padding="10dp"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription"
@@ -25,11 +24,11 @@
         android:id="@+id/tvSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/tvName"
+        android:layout_marginTop="7dp"
         app:layout_constraintStart_toEndOf="@+id/ivImage"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="BTC"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:fontFamily="@font/poppinsmedium"
         android:textColor="@color/black"
         app:layout_constraintVertical_chainStyle="packed"/>
@@ -40,7 +39,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvSymbol"
+        android:layout_marginBottom="7dp"
         android:textColor="@color/black"
         android:fontFamily="@font/poppinsregular"
         tools:text="Bitcoin"
@@ -49,21 +48,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
         android:fontFamily="@font/poppinsmedium"
         android:text="$"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="154dp" />
 
     <TextView
         android:id="@+id/tvPrice"
@@ -72,9 +64,11 @@
         android:layout_marginStart="5dp"
         android:fontFamily="@font/poppinsmedium"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        android:layout_marginEnd="15dp"
+        android:maxLength="20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="48661.00" />
 

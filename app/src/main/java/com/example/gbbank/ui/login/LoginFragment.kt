@@ -4,6 +4,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.gbbank.MainActivity
 import com.example.gbbank.databinding.FragmentLoginBinding
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
@@ -18,6 +19,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private val viewModel: LoginViewModel by viewModels()
 
     override fun start() {
+        val activity = requireActivity() as? MainActivity
+        activity?.hideToolBar()
+        checkIfLogged()
         listener()
     }
 
@@ -25,13 +29,33 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         binding.tvSignUp.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
-
         binding.btnSignIn.setOnClickListener {
             login()
         }
-
         binding.tvForgotPassword.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
+        }
+    }
+
+    private fun checkIfLogged() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.logged.collect {
+                when(it) {
+                    is Resource.Success -> {
+                        binding.progressBar.isVisible = false
+                        if(it.data == false) {
+                            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                        }
+                    }
+                    is Resource.Error -> {
+                        binding.progressBar.isVisible = false
+                        view?.showSnackBar(it.errorMessage!!)
+                    }
+                    is Resource.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+                }
+            }
         }
     }
 
@@ -58,7 +82,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     }
                 }
             }
+
         }
+
     }
+
 
 }

@@ -1,6 +1,5 @@
 package com.example.gbbank.repositories
 
-import android.util.Log.d
 import com.example.gbbank.data.CryptoApi
 import com.example.gbbank.model.Crypto
 import com.example.gbbank.utils.Resource

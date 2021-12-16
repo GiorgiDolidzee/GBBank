@@ -3,6 +3,7 @@ package com.example.gbbank.ui.profile
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.gbbank.databinding.FragmentProfileBinding
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
@@ -18,6 +19,13 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     override fun start() {
         realTimeCallBack()
+        listeners()
+    }
+
+    private fun listeners() {
+        binding.btnSignOut.setOnClickListener {
+            signOut()
+        }
     }
 
     private fun realTimeCallBack() {
@@ -28,6 +36,27 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                         binding.progressBar.isVisible = false
                         binding.tvFullName.text = it.data?.firstName.plus(" ").plus(it.data?.lastName)
                         binding.tvEmail.text = it.data?.email
+                    }
+                    is Resource.Error -> {
+                        binding.progressBar.isVisible = false
+                        view?.showSnackBar(it.errorMessage!!)
+                    }
+                    is Resource.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+                }
+            }
+        }
+    }
+
+    private fun signOut() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.signOut()
+            viewModel.signOutResponse.collect {
+                when(it) {
+                    is Resource.Success -> {
+                        binding.progressBar.isVisible = false
+                        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false

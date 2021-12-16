@@ -15,7 +15,8 @@ class CryptoAdapter(private val cryptos: List<Crypto>) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder {
-            return CryptoViewHolder(LayoutCryptoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            return CryptoViewHolder(
+                LayoutCryptoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
@@ -24,7 +25,7 @@ class CryptoAdapter(private val cryptos: List<Crypto>) :
             ivImage.setImage(currentItem.image)
             tvName.text = currentItem.name
             tvPrice.text = currentItem.currentPrice.toString()
-            tvSymbol.text = currentItem.symbol
+            tvSymbol.text = currentItem.symbol?.uppercase()
         }
         d("TAG", "onBind: $currentItem")
     }
