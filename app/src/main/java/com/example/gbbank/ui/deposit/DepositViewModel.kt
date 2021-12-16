@@ -19,11 +19,11 @@ class DepositViewModel @Inject constructor(
 
     val addBalanceResponse = MutableSharedFlow<Resource<Task<Void>>>()
 
-    fun addBalance(amount: String) =
+    fun addBalance(amount: String, currentDate: String) =
         viewModelScope.launch {
             addBalanceResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
-                addBalanceResponse.emit(repository.addBalance(amount))
+                addBalanceResponse.emit(repository.addBalance(amount, currentDate))
             }
         }
 

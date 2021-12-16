@@ -1,5 +1,6 @@
 package com.example.gbbank.ui.deposit
 
+import android.annotation.SuppressLint
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +14,8 @@ import com.example.gbbank.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBinding::inflate) {
@@ -37,10 +40,13 @@ class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBind
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun addToBalance(amount: String) {
         viewLifecycleOwner.lifecycleScope.launch {
             val newBalance: Double = args.oldBalance.toDouble() + amount.toDouble()
-            viewModel.addBalance(newBalance.toString().trim())
+            val sdf = SimpleDateFormat("dd/M/yyyy")
+            val currentDate = sdf.format(Date())
+            viewModel.addBalance(newBalance.toString().trim(), currentDate)
             viewModel.addBalanceResponse.collect {
                 when(it) {
                     is Resource.Success -> {
