@@ -23,5 +23,4 @@ class LoginRepository @Inject constructor(
                 responseHandler.handleException(e)
             }
         }
-
 }

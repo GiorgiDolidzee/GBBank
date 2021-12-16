@@ -37,4 +37,5 @@
     <string name="exchange">Exchange</string>
     <string name="crypto">Crypto</string>
     <string name="profile">Profile</string>
+    <string name="top_50_cryptos">Top 50 Cryptos</string>
 </resources>

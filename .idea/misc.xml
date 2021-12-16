@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/card_shape.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/rectangle_shape.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_crypto.xml" value="0.25" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_deposit.xml" value="0.32382246376811596" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_exchange.xml" value="0.32382246376811596" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_get_started.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_home.xml" value="0.32382246376811596" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_login.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/layout_crypto_item.xml" value="0.22" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/GBBank/app/src/main/res/drawable/bottom_navigation_rectangle.xml" value="0.3828125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/GBBank/app/src/main/res/drawable/card_shape.xml" value="0.3828125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_profile.xml" value="0.3828125" />
