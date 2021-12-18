@@ -2,6 +2,8 @@ package com.example.gbbank.modules
 
 import com.example.gbbank.data.CryptoApi
 import com.example.gbbank.data.CryptoInterceptor
+import com.example.gbbank.data.RatesApi
+import com.example.gbbank.data.RatesInterceptor
 import com.example.gbbank.repositories.*
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.FirebaseAuth
@@ -13,7 +15,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -70,4 +71,20 @@ object AppModule {
         .client(OkHttpClient.Builder().apply { addInterceptor(CryptoInterceptor()) }.build())
         .build()
         .create(CryptoApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideExchangeRepository(
+        api: RatesApi,
+        handler: ResponseHandler
+    ):RatesRepository = RatesRepository(api, handler)
+
+    @Provides
+    @Singleton
+    fun provideExchangeApi(): RatesApi = Retrofit.Builder()
+        .baseUrl("https://test-api.tbcbank.ge")
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(OkHttpClient.Builder().apply { addInterceptor(RatesInterceptor()) }.build())
+        .build()
+        .create(RatesApi::class.java)
 }

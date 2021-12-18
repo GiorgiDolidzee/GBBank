@@ -1,29 +1,28 @@
 package com.example.gbbank.repositories
 
-import com.example.gbbank.data.CryptoApi
-import com.example.gbbank.model.Crypto
+import com.example.gbbank.data.RatesApi
+import com.example.gbbank.model.Rates
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CryptoRepository @Inject constructor(
-    private val api: CryptoApi,
+class RatesRepository @Inject constructor(
+    private val api: RatesApi,
     private val responseHandler: ResponseHandler
 ) {
-    suspend fun getCrypto(): Resource<List<Crypto>> =
-        withContext(Dispatchers.IO) {
+    suspend fun getRates(): Resource<Rates> =
+        withContext(Dispatchers.IO){
             return@withContext try {
-                val response = api.getCrypto()
+                val response = api.getRates()
                 val body = response.body()
-                if (response.isSuccessful && body != null) {
+                if (response.isSuccessful && body != null){
                     responseHandler.handleSuccess(body)
-                } else {
-                    responseHandler.handleException(Exception("Unexpected Error Occurred."))
-
+                }else{
+                    responseHandler.handleException(Exception("Unexpected Error Occurred"))
                 }
-            } catch (e: Exception) {
+            } catch (e: Exception){
                 responseHandler.handleException(e)
             }
         }
