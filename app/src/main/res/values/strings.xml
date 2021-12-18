@@ -38,4 +38,8 @@
     <string name="crypto">Crypto</string>
     <string name="profile">Profile</string>
     <string name="top_50_cryptos">Top 50 Cryptos</string>
+    <string name="convert">convert</string>
+    <string name="refresh">Refresh</string>
+    <string name="buy">Buy:</string>
+    <string name="sell">Sell:</string>
 </resources>
