@@ -1,4 +1,4 @@
-package com.example.gbbank.repositories
+package com.example.gbbank.repositories.rates_repository
 
 import com.example.gbbank.data.RatesApi
 import com.example.gbbank.model.Rates
@@ -8,11 +8,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class RatesRepository @Inject constructor(
+class RatesRepositoryImpl @Inject constructor(
     private val api: RatesApi,
     private val responseHandler: ResponseHandler
-) {
-    suspend fun getRates(): Resource<Rates> =
+) : RatesRepository {
+
+    override suspend fun getRates(): Resource<Rates> =
         withContext(Dispatchers.IO){
             return@withContext try {
                 val response = api.getRates()

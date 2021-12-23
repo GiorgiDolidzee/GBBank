@@ -2,7 +2,7 @@ package com.example.gbbank.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gbbank.repositories.LoginRepository
+import com.example.gbbank.repositories.login_repository.LoginRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: LoginRepository,
+    private val repository: LoginRepositoryImpl,
     private val auth: FirebaseAuth
 ) : ViewModel() {
 

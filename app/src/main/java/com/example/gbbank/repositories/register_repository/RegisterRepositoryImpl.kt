@@ -1,6 +1,7 @@
-package com.example.gbbank.repositories
+package com.example.gbbank.repositories.register_repository
 
 import com.example.gbbank.model.User
+import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.AuthResult
@@ -10,12 +11,13 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class RegisterRepository @Inject constructor(
+class RegisterRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
     private val responseHandler: ResponseHandler,
-    private val repository: DbAddUserRepository) {
+    private val repository: DbAddUserRepositoryImpl
+) : RegisterRepository {
 
-    suspend fun register(firstName: String, lastName: String, email: String, password: String, repeatPassword: String)
+    override suspend fun register(firstName: String, lastName: String, email: String, password: String, repeatPassword: String)
     : Resource<AuthResult> =
         withContext(Dispatchers.IO) {
             return@withContext try {

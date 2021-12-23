@@ -19,9 +19,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private val viewModel: LoginViewModel by viewModels()
 
     override fun start() {
+        checkIfLogged()
         val activity = requireActivity() as? MainActivity
         activity?.hideToolBar()
-        checkIfLogged()
         listener()
     }
 

@@ -1,4 +1,4 @@
-package com.example.gbbank.repositories
+package com.example.gbbank.repositories.login_repository
 
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
@@ -9,11 +9,11 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class LoginRepository @Inject constructor(
+class LoginRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
-    private val responseHandler: ResponseHandler) {
+    private val responseHandler: ResponseHandler) : LoginRepository {
 
-    suspend fun login(email: String, password: String)
+    override suspend fun login(email: String, password: String)
     : Resource<AuthResult> =
         withContext(Dispatchers.IO) {
             return@withContext try {

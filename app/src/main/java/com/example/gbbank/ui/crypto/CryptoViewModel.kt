@@ -3,7 +3,7 @@ package com.example.gbbank.ui.crypto
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gbbank.model.Crypto
-import com.example.gbbank.repositories.CryptoRepository
+import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
 import com.example.gbbank.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CryptoViewModel @Inject constructor(
-    private val repository: CryptoRepository
+    private val repository: CryptoRepositoryImpl
 ) : ViewModel() {
 
     val cryptoResponse = MutableSharedFlow<Resource<List<Crypto>>>()

@@ -2,7 +2,7 @@ package com.example.gbbank.ui.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gbbank.repositories.RegisterRepository
+import com.example.gbbank.repositories.register_repository.RegisterRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.google.firebase.auth.AuthResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(private val repository: RegisterRepository) : ViewModel() {
+class RegisterViewModel @Inject constructor(private val repository: RegisterRepositoryImpl) : ViewModel() {
 
     val registerResponse = MutableSharedFlow<Resource<AuthResult>>()
 

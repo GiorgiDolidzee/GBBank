@@ -1,4 +1,4 @@
-package com.example.gbbank.modules
+package com.example.gbbank.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

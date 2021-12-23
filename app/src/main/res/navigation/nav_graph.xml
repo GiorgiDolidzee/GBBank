@@ -87,7 +87,11 @@
         android:id="@+id/cryptoFragment"
         android:name="com.example.gbbank.ui.crypto.CryptoFragment"
         android:label="fragment_crypto"
-        tools:layout="@layout/fragment_crypto" />
+        tools:layout="@layout/fragment_crypto" >
+        <action
+            android:id="@+id/action_cryptoFragment_to_openedCryptoFragment"
+            app:destination="@id/openedCryptoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.gbbank.ui.profile.ProfileFragment"
@@ -99,4 +103,39 @@
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/openedCryptoFragment"
+        android:name="com.example.gbbank.ui.opened_crypto.OpenedCryptoFragment"
+        android:label="fragment_opened_crypto"
+        tools:layout="@layout/fragment_opened_crypto" >
+
+        <argument
+            android:name="cryptoName"
+            app:argType="string"/>
+
+        <argument
+            android:name="cryptoImg"
+            app:argType="string" />
+
+        <argument
+            android:name="price"
+            app:argType="float"/>
+
+        <argument
+            android:name="changePercent"
+            app:argType="float" />
+
+        <argument
+            android:name="rank"
+            app:argType="integer" />
+
+        <argument
+            android:name="highPrice"
+            app:argType="float" />
+
+        <argument
+            android:name="lowPrice"
+            app:argType="float" />
+    </fragment>
+
 </navigation>

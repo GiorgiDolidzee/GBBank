@@ -1,96 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:layout_marginStart="12dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginEnd="12dp"
-    android:layout_marginBottom="7dp"
-    android:background="@drawable/rectangle_shape">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:weightSum="3"
+    android:background="@drawable/rectangle_shape"
+    android:gravity="center_vertical"
+    android:padding="12dp">
 
 
     <TextView
-        android:id="@+id/tvFrom"
+        android:id="@+id/tvCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
         android:fontFamily="@font/poppinsmedium"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="FROM" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_send"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvTo"
-        app:layout_constraintStart_toEndOf="@id/tvFrom"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsmedium"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/arrow"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="TO" />
-
-
-    <TextView
-        android:id="@+id/tvBuyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buy"
-        app:layout_constraintBottom_toTopOf="@id/tvSellText"
-        app:layout_constraintEnd_toStartOf="@id/tvBuyPrice"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:text="USD" />
 
     <TextView
         android:id="@+id/tvBuyPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsmedium"
-        android:maxLength="20"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/tvSellPrice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="297dp"
-        tools:text="48661.00" />
-
-    <TextView
-        android:id="@+id/tvSellText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sell"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvSellPrice"
-        app:layout_constraintTop_toBottomOf="@id/tvBuyText" />
+        android:layout_weight="1"
+        android:layout_gravity="end"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="end"
+        android:text="@string/zerogel"
+        android:textColor="#740000"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvSellPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppinsmedium"
-        android:maxLength="20"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvBuyPrice"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="31dp"
-        tools:text="48661.00" />
+        android:layout_marginEnd="15dp"
+        android:layout_weight="1"
+        android:layout_gravity="end"
+        android:fontFamily="@font/poppinsregular"
+        android:gravity="end"
+        android:text="@string/zerogel"
+        android:textColor="#00952C"
+        android:textSize="20sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

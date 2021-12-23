@@ -1,4 +1,4 @@
-package com.example.gbbank.repositories
+package com.example.gbbank.repositories.crypto_repository
 
 import com.example.gbbank.data.CryptoApi
 import com.example.gbbank.model.Crypto
@@ -8,11 +8,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CryptoRepository @Inject constructor(
+class CryptoRepositoryImpl @Inject constructor(
     private val api: CryptoApi,
     private val responseHandler: ResponseHandler
-) {
-    suspend fun getCrypto(): Resource<List<Crypto>> =
+) : CryptoRepository {
+
+    override suspend fun getCrypto(): Resource<List<Crypto>> =
         withContext(Dispatchers.IO) {
             return@withContext try {
                 val response = api.getCrypto()

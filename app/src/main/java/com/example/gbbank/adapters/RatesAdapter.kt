@@ -24,10 +24,9 @@ class RatesAdapter(private val rates: Rates?) :
     override fun onBindViewHolder(holder: RatesViewHolder, position: Int) {
             val commercialRate = rates?.commercialRatesList
             holder.binding.apply {
-                tvFrom.text = rates?.base
-                tvTo.text = commercialRate?.get(position)?.currency.toString()
-                tvBuyPrice.text = commercialRate?.get(position)?.buy.toString()
-                tvSellPrice.text = commercialRate?.get(position)?.sell.toString()
+                tvCurrency.text = commercialRate?.get(position)?.currency.toString()
+                tvBuyPrice.text = commercialRate?.get(position)?.buy.toString().plus("₾")
+                tvSellPrice.text = commercialRate?.get(position)?.sell.toString().plus("₾")
             }
 
     }

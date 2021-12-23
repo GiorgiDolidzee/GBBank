@@ -1,6 +1,5 @@
 package com.example.gbbank.adapters
 
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,8 +7,12 @@ import com.example.gbbank.databinding.LayoutCryptoItemBinding
 import com.example.gbbank.extensions.setImage
 import com.example.gbbank.model.Crypto
 
+typealias onClick = (crypto: Crypto) -> Unit
+
 class CryptoAdapter(private val cryptos: List<Crypto>) :
     RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
+
+    lateinit var itemClick : onClick
 
     inner class CryptoViewHolder(val binding: LayoutCryptoItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -32,7 +35,11 @@ class CryptoAdapter(private val cryptos: List<Crypto>) :
             tvPrice.text = currentItem.currentPrice.toString()
             tvSymbol.text = currentItem.symbol?.uppercase()
         }
-        d("TAG", "onBind: $currentItem")
+
+        holder.binding.root.setOnClickListener {
+            itemClick(currentItem)
+        }
+
     }
 
     override fun getItemCount(): Int = cryptos.size

@@ -25,7 +25,7 @@
     <string name="reset_your_password">Reset your password</string>
     <string name="send">Send</string>
     <string name="welcome_back">Welcome back,</string>
-    <string name="name">Name!</string>
+    <string name="name">Name</string>
     <string name="full_name">Full name</string>
     <string name="_0_00">0.00</string>
     <string name="gel">₾</string>
@@ -38,8 +38,18 @@
     <string name="crypto">Crypto</string>
     <string name="profile">Profile</string>
     <string name="top_50_cryptos">Top 50 Cryptos</string>
-    <string name="convert">convert</string>
+    <string name="convert">Convert</string>
     <string name="refresh">Refresh</string>
-    <string name="buy">Buy:</string>
-    <string name="sell">Sell:</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="currency_converter">Currency converter</string>
+    <string name="currency">Currency</string>
+    <string name="textview_usd">20 USD</string>
+    <string name="zerogel">0.0000₾</string>
+    <string name="cardchip">cardchip</string>
+    <string name="rank">Rank</string>
+    <string name="_1">1</string>
+    <string name="_0_2828">-0.2828%</string>
+    <string name="_48661_0">48661.0$</string>
+    <string name="high_24h">High 24h</string>
 </resources>

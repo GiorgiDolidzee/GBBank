@@ -1,4 +1,4 @@
-package com.example.gbbank.repositories
+package com.example.gbbank.repositories.add_balance_repository
 
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
@@ -9,13 +9,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class DbAddBalanceRepository @Inject constructor(
+class DbAddBalanceRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
     private val db: FirebaseDatabase,
     private val responseHandler: ResponseHandler,
-) {
+) : DbAddBalanceRepository {
 
-    suspend fun addBalance(amount: String, currentDate: String) : Resource<Task<Void>> =
+    override suspend fun addBalance(amount: String, currentDate: String) : Resource<Task<Void>> =
         withContext(Dispatchers.IO) {
             return@withContext try {
                 val currentUserUid = auth.currentUser?.uid

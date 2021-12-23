@@ -5,7 +5,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.gbbank.adapters.RatesAdapter
 import com.example.gbbank.databinding.FragmentExchangeBinding
 import com.example.gbbank.extensions.showSnackBar
@@ -24,16 +23,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
     private lateinit var adapter: RatesAdapter
 
     override fun start() {
-        listeners()
         getRates()
-    }
-
-    private fun listeners() {
-        binding.swipeRefresh.setOnClickListener {
-//        binding.swipeRefresh.setOnRefreshListener {
-            start()
-//            binding.swipeRefresh.isRefreshing = false
-        }
     }
 
     private fun getRates() {
@@ -60,13 +50,12 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
 
     private fun rateOperations(data: Rates?) {
         initRecyclerView(data)
-//        viewModel.convert()
-
     }
 
     private fun initRecyclerView(data: Rates?) {
         adapter = RatesAdapter(data)
         binding.rvRates.adapter = adapter
         binding.rvRates.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRates.isNestedScrollingEnabled
     }
 }

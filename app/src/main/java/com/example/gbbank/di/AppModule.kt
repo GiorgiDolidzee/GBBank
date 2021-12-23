@@ -1,10 +1,21 @@
-package com.example.gbbank.modules
+package com.example.gbbank.di
 
 import com.example.gbbank.data.CryptoApi
 import com.example.gbbank.data.CryptoInterceptor
 import com.example.gbbank.data.RatesApi
 import com.example.gbbank.data.RatesInterceptor
-import com.example.gbbank.repositories.*
+import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepository
+import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
+import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
+import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepository
+import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
+import com.example.gbbank.repositories.login_repository.LoginRepository
+import com.example.gbbank.repositories.login_repository.LoginRepositoryImpl
+import com.example.gbbank.repositories.rates_repository.RatesRepositoryImpl
+import com.example.gbbank.repositories.register_repository.RegisterRepository
+import com.example.gbbank.repositories.register_repository.RegisterRepositoryImpl
+import com.example.gbbank.repositories.reset_password_repository.ResetPasswordRepository
+import com.example.gbbank.repositories.reset_password_repository.ResetPasswordRepositoryImpl
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -24,33 +35,33 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRegisterRepository(
-        auth: FirebaseAuth, handler: ResponseHandler, repository: DbAddUserRepository
+        auth: FirebaseAuth, handler: ResponseHandler, repository: DbAddUserRepositoryImpl
     )
-            : RegisterRepository = RegisterRepository(auth, handler, repository)
+            : RegisterRepository = RegisterRepositoryImpl(auth, handler, repository)
 
     @Provides
     @Singleton
     fun provideLoginRepository(
         auth: FirebaseAuth, handler: ResponseHandler
-    ): LoginRepository = LoginRepository(auth, handler)
+    ): LoginRepository = LoginRepositoryImpl(auth, handler)
 
     @Provides
     @Singleton
     fun provideResetPasswordRepository(
         auth: FirebaseAuth, handler: ResponseHandler
-    ): ResetPasswordRepository = ResetPasswordRepository(auth, handler)
+    ): ResetPasswordRepository = ResetPasswordRepositoryImpl(auth, handler)
 
     @Provides
     @Singleton
     fun provideAddUserDbRepository(
         handler: ResponseHandler, db: FirebaseDatabase
-    ): DbAddUserRepository = DbAddUserRepository(handler, db)
+    ): DbAddUserRepository = DbAddUserRepositoryImpl(handler, db)
 
     @Provides
     @Singleton
     fun provideAddBalanceRepository(
         auth: FirebaseAuth, db: FirebaseDatabase, handler: ResponseHandler
-    ): DbAddBalanceRepository = DbAddBalanceRepository(auth, db, handler)
+    ): DbAddBalanceRepository = DbAddBalanceRepositoryImpl(auth, db, handler)
 
     @Provides
     @Singleton
@@ -61,7 +72,7 @@ object AppModule {
     fun provideCryptoRepository(
         api: CryptoApi,
         handler: ResponseHandler
-    ):CryptoRepository = CryptoRepository(api, handler)
+    ): CryptoRepositoryImpl = CryptoRepositoryImpl(api, handler)
 
     @Provides
     @Singleton
@@ -77,7 +88,7 @@ object AppModule {
     fun provideExchangeRepository(
         api: RatesApi,
         handler: ResponseHandler
-    ):RatesRepository = RatesRepository(api, handler)
+    ): RatesRepositoryImpl = RatesRepositoryImpl(api, handler)
 
     @Provides
     @Singleton

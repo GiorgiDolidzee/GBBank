@@ -26,6 +26,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         listener()
     }
 
+
+
     private fun realTimeCallBack() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.realTimeResponse.collect {
@@ -55,6 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 lastBalance!!.toFloat()
             ))
         }
+
     }
 
 }

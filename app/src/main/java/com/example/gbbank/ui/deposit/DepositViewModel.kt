@@ -2,7 +2,7 @@ package com.example.gbbank.ui.deposit
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.gbbank.repositories.DbAddBalanceRepository
+import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.google.android.gms.tasks.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DepositViewModel @Inject constructor(
-    private val repository: DbAddBalanceRepository
+    private val repository: DbAddBalanceRepositoryImpl
 ) : ViewModel() {
 
     val addBalanceResponse = MutableSharedFlow<Resource<Task<Void>>>()
