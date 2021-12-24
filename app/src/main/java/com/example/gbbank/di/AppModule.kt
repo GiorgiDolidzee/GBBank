@@ -1,14 +1,12 @@
 package com.example.gbbank.di
 
-import com.example.gbbank.data.CryptoApi
-import com.example.gbbank.data.CryptoInterceptor
-import com.example.gbbank.data.RatesApi
-import com.example.gbbank.data.RatesInterceptor
+import com.example.gbbank.data.*
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepository
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
 import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepository
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
+import com.example.gbbank.repositories.exchange_repository.ExchangeRepositoryImpl
 import com.example.gbbank.repositories.login_repository.LoginRepository
 import com.example.gbbank.repositories.login_repository.LoginRepositoryImpl
 import com.example.gbbank.repositories.rates_repository.RatesRepositoryImpl
@@ -85,17 +83,34 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideExchangeRepository(
+    fun provideRatesRepository(
         api: RatesApi,
         handler: ResponseHandler
     ): RatesRepositoryImpl = RatesRepositoryImpl(api, handler)
 
+
     @Provides
     @Singleton
-    fun provideExchangeApi(): RatesApi = Retrofit.Builder()
+    fun provideRatesApi(): RatesApi = Retrofit.Builder()
         .baseUrl("https://test-api.tbcbank.ge")
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient.Builder().apply { addInterceptor(RatesInterceptor()) }.build())
         .build()
         .create(RatesApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideExchangeRepository(
+        api: ExchangeApi,
+        handler: ResponseHandler
+    ): ExchangeRepositoryImpl = ExchangeRepositoryImpl(api, handler)
+
+    @Provides
+    @Singleton
+    fun provideExchangeApi(): ExchangeApi = Retrofit.Builder()
+        .baseUrl("https://test-api.tbcbank.ge")
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(OkHttpClient.Builder().apply { addInterceptor(ExchangeInterceptor()) }.build())
+        .build()
+        .create(ExchangeApi::class.java)
 }

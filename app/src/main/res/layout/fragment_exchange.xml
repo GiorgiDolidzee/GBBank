@@ -46,18 +46,19 @@
                     android:id="@+id/etAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
                     android:lines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
-                android:id="@+id/tvAmount"
+                android:id="@+id/tvResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                android:text="@string/textview_usd"
+                tools:text="@string/textview_usd"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
 
@@ -144,7 +145,6 @@
             android:paddingBottom="55dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swipeRefresh" />
-
 
         <ProgressBar
             android:id="@+id/progressBar"
