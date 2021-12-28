@@ -135,7 +135,8 @@
                     android:textColor="@color/grey"
                     android:visibility="visible"
                     android:textSize="20sp"
-                    android:text="@string/equals" />
+                    android:text=" = "
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/tvTo"
@@ -146,7 +147,6 @@
                     android:fontFamily="@font/poppinsmedium"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    android:layout_marginStart="10dp"
                     tools:text="999.9 GEL"
                     tools:visibility="visible" />
 
@@ -181,7 +181,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppinsregular"
-                android:text="@string/name"
+                android:text="@string/currency_name"
                 android:textAllCaps="true"
                 android:textSize="15sp" />
 
@@ -218,7 +218,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:overScrollMode="never"
-            android:paddingBottom="55dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swipeRefresh" />
 

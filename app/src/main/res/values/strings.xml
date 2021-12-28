@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">GB Bank</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name" translatable="false">GB Bank</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="get_started">Get Started</string>
     <string name="gbbank_description">Digital bank to manage your balance, track exchange rates and ease your life.</string>
     <string name="welcome_to_gb_bank">Welcome to GB Bank!</string>
@@ -12,8 +12,8 @@
     <string name="e_mail">E-mail</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
-    <string name="lines">Lines</string>
-    <string name="logo">Logo</string>
+    <string name="lines" translatable="false">Lines</string>
+    <string name="logo" translatable="false">Logo</string>
     <string name="back">Back</string>
     <string name="lets_get_started">Let\'s Get Started</string>
     <string name="create_your_own_account">Create your own account</string>
@@ -26,12 +26,12 @@
     <string name="welcome_back">Welcome back,</string>
     <string name="name">Name</string>
     <string name="full_name">Full name</string>
-    <string name="_0_00">0.00</string>
-    <string name="gel">₾</string>
+    <string name="_0_00" translatable="false">0.00</string>
+    <string name="gel" translatable="false">₾</string>
     <string name="deposit">Deposit</string>
     <string name="amount">Amount</string>
     <string name="add_to_balance">Add to balance</string>
-    <string name="_0_0">0.0</string>
+    <string name="_0_0" translatable="false">0.0</string>
     <string name="home">Home</string>
     <string name="exchange">Exchange</string>
     <string name="crypto">Crypto</string>
@@ -43,14 +43,19 @@
     <string name="sell">Sell</string>
     <string name="currency_converter">Currency Converter</string>
     <string name="currency">Currency Rates</string>
-    <string name="textview_usd">20 USD</string>
-    <string name="zerogel">0.0000₾</string>
-    <string name="cardchip">cardchip</string>
+    <string name="textview_usd" translatable="false">20 USD</string>
+    <string name="zerogel" translatable="false">0.0000₾</string>
+    <string name="cardchip" translatable="false">cardchip</string>
     <string name="rank">Rank</string>
-    <string name="_1">1</string>
-    <string name="_0_2828">-0.2828%</string>
-    <string name="_48661_0">48661.0$</string>
+    <string name="_1" translatable="false">1</string>
+    <string name="_0_2828" translatable="false">-0.2828%</string>
+    <string name="_48661_0" translatable="false">48661.0$</string>
     <string name="high_24h">High 24h</string>
     <string name="sb_type_valid_number">Please type valid number!</string>
-    <string name="equals">=</string>
+    <string name="coingecko_disclaimer">Cryptocurrency rates provided by CoinGecko. All rights reserved.</string>
+    <string name="currency_name">Currency</string>
+    <string name="low_24h">Low 24h</string>
+    <string name="change_password">Change password</string>
+    <string name="app_information">App information</string>
+    <string name="sign_out">Sign out</string>
 </resources>

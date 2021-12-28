@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/black"
+            android:gravity="center"
             android:textSize="17sp"
             android:text="@string/hey_welcome_back"/>
 

@@ -170,7 +170,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="2dp"
                     android:fontFamily="@font/poppinsregular"
-                    android:text="Low 24h"
+                    android:text="@string/low_24h"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
