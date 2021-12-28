@@ -97,12 +97,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
     implementation 'com.google.code.gson:gson:2.8.9'
-
-    // Google Translate
-    implementation 'com.google.mlkit:translate:16.1.2'
-
-
-
 }
 
 
