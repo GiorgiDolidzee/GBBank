@@ -1,4 +1,4 @@
-package com.example.gbbank.data
+package com.example.gbbank.data.crypto_rates
 
 import com.example.gbbank.model.Crypto
 import retrofit2.Response

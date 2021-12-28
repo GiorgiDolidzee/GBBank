@@ -1,4 +1,4 @@
-package com.example.gbbank.data
+package com.example.gbbank.data.exchange
 
 import com.example.gbbank.model.ExchangeResponse
 import retrofit2.Response

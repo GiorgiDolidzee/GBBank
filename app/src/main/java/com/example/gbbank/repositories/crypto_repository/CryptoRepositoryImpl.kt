@@ -1,6 +1,6 @@
 package com.example.gbbank.repositories.crypto_repository
 
-import com.example.gbbank.data.CryptoApi
+import com.example.gbbank.data.crypto_rates.CryptoApi
 import com.example.gbbank.model.Crypto
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler

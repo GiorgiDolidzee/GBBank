@@ -1,6 +1,11 @@
 package com.example.gbbank.di
 
-import com.example.gbbank.data.*
+import com.example.gbbank.data.crypto_rates.CryptoApi
+import com.example.gbbank.data.crypto_rates.CryptoInterceptor
+import com.example.gbbank.data.exchange.ExchangeApi
+import com.example.gbbank.data.exchange.ExchangeInterceptor
+import com.example.gbbank.data.exchange_rates.RatesApi
+import com.example.gbbank.data.exchange_rates.RatesInterceptor
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepository
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
 import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl

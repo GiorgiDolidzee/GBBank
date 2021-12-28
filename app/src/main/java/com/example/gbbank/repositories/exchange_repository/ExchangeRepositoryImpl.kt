@@ -1,6 +1,6 @@
 package com.example.gbbank.repositories.exchange_repository
 
-import com.example.gbbank.data.ExchangeApi
+import com.example.gbbank.data.exchange.ExchangeApi
 import com.example.gbbank.model.ExchangeResponse
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler

@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="#F6F6FF"
     android:orientation="vertical"
-    android:padding="15dp"
     android:overScrollMode="never"
+    android:padding="15dp"
     tools:context=".ui.exchange.ExchangeFragment">
 
     <LinearLayout
@@ -32,23 +32,55 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:hint="@string/amount"
-                app:endIconMode="clear_text">
+                android:layout_height="70dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAmount"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="match_parent"
+                    android:hint="@string/amount"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAmount"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="numberDecimal"
+                        android:lines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Spinner
+                    android:id="@+id/spFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:entries="@array/currencies_array"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+                <ImageView
+                    android:id="@+id/ivSwap"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:lines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_linear_arrow_swap_horizontal"
+                    android:layout_gravity="center"/>
+
+                <Spinner
+                    android:id="@+id/spTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:entries="@array/currencies_array"
+                    android:padding="10dp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
             <TextView
@@ -58,9 +90,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppinsmedium"
-                tools:text="@string/textview_usd"
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                tools:text="@string/textview_result" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnConvert"
@@ -92,10 +124,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="3"
+            android:gravity="center_vertical"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:gravity="center_vertical">
+            android:weightSum="3">
 
 
             <TextView
@@ -105,16 +137,16 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppinsregular"
-                android:textSize="15sp"
+                android:text="@string/name"
                 android:textAllCaps="true"
-                android:text="@string/name" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvBuyPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="end"
+                android:layout_weight="1"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="end"
                 android:text="@string/buy"
@@ -125,9 +157,9 @@
                 android:id="@+id/tvSellPrice"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
-                android:layout_gravity="end"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="end"
                 android:text="@string/sell"
@@ -150,12 +182,12 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_gravity="center"
             tools:visibility="visible" />
 
     </LinearLayout>

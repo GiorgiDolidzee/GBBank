@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.gbbank.R
 import com.example.gbbank.adapters.RatesAdapter
 import com.example.gbbank.databinding.FragmentExchangeBinding
 import com.example.gbbank.extensions.showSnackBar
@@ -26,18 +27,34 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
     private lateinit var adapter: RatesAdapter
 
     override fun start() {
+        init()
         listeners()
         getRates()
+    }
+
+    private fun init(){
+        binding.spFrom.setSelection(1)
+        binding.spTo.setSelection(0)
     }
 
     private fun listeners() {
         binding.btnConvert.setOnClickListener {
             try {
                 val amount = binding.etAmount.text.toString().toInt()
-                exchange(amount, "usd", "gel")
+                val from = binding.spFrom.selectedItem.toString()
+                val to = binding.spTo.selectedItem.toString()
+                exchange(amount, from, to)
             } catch (e: Exception) {
-                view?.showSnackBar("Please type valid number!")
+                view?.showSnackBar(getString(R.string.sb_type_valid_number))
             }
+        }
+        binding.ivSwap.setOnClickListener {
+            val from = binding.spFrom
+            val to = binding.spTo
+
+            val fromPosition = from.selectedItemPosition
+            from.setSelection(to.selectedItemPosition)
+            to.setSelection(fromPosition)
         }
     }
 
@@ -98,7 +115,8 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
 
     private fun showExchangeResult(data: ExchangeResponse? = null) {
         if (data != null) {
-            binding.tvResult.text = data.value.toString().plus(" " + data.to)
+            val result = "${data.amount} ${data.from} = ${data.value} ${data.to}"
+            binding.tvResult.text = result
         }
     }
 }

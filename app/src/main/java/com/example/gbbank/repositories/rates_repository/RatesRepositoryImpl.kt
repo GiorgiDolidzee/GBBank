@@ -1,6 +1,6 @@
 package com.example.gbbank.repositories.rates_repository
 
-import com.example.gbbank.data.RatesApi
+import com.example.gbbank.data.exchange_rates.RatesApi
 import com.example.gbbank.model.Rates
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler

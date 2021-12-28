@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GB Bank</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="get_started">Get Started</string>
     <string name="gbbank_description">Digital bank to manage your balance, track exchange rates and ease your life.</string>
@@ -42,8 +41,8 @@
     <string name="refresh">Refresh</string>
     <string name="buy">Buy</string>
     <string name="sell">Sell</string>
-    <string name="currency_converter">Currency converter</string>
-    <string name="currency">Currency</string>
+    <string name="currency_converter">Currency Converter</string>
+    <string name="currency">Currency Rates</string>
     <string name="textview_usd">20 USD</string>
     <string name="zerogel">0.0000₾</string>
     <string name="cardchip">cardchip</string>
@@ -52,4 +51,34 @@
     <string name="_0_2828">-0.2828%</string>
     <string name="_48661_0">48661.0$</string>
     <string name="high_24h">High 24h</string>
+    <string name="textview_result">1 USD = 1 GEL</string>
+    <string name="sb_type_valid_number">Please type valid number!</string>
+
+    <string-array name="currencies_array">
+        <item>GEL</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+
+        <item>AED</item>
+        <item>AMD</item>
+        <item>AVD</item>
+        <item>AZN</item>
+        <item>BGN</item>
+        <item>CAD</item>
+        <item>CHF</item>
+        <item>CNY</item>
+        <item>CZK</item>
+        <item>DKK</item>
+        <item>ILS</item>
+        <item>JPY</item>
+        <item>NOK</item>
+        <item>PLN</item>
+        <item>QAR</item>
+        <item>RUR</item>
+        <item>SAR</item>
+        <item>SEK</item>
+        <item>TRY</item>
+        <item>UKG</item>
+    </string-array>
 </resources>
