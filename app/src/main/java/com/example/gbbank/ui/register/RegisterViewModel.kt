@@ -20,8 +20,7 @@ class RegisterViewModel @Inject constructor(private val repository: RegisterRepo
     fun signUp(firstName: String,
                lastName: String,
                email: String,
-               password: String,
-               repeatPassword: String
+               password: String
     ) =
         viewModelScope.launch {
             registerResponse.emit(Resource.Loading())
@@ -31,8 +30,7 @@ class RegisterViewModel @Inject constructor(private val repository: RegisterRepo
                         firstName,
                         lastName,
                         email,
-                        password,
-                        repeatPassword)
+                        password)
                 )
             }
         }

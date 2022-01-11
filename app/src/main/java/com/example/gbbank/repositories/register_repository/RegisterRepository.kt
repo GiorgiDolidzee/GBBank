@@ -7,7 +7,6 @@ interface RegisterRepository {
     suspend fun register(firstName: String,
                          lastName: String,
                          email: String,
-                         password: String,
-                         repeatPassword: String)
+                         password: String)
     : Resource<AuthResult>
 }

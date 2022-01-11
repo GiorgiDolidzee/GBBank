@@ -36,10 +36,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 val lastName = etLastName.text.toString()
                 val email = etEmail.text.toString()
                 val password = etPassword.text.toString()
-                val repeatPassword = etRepeatPassword.text.toString()
 
                 viewLifecycleOwner.lifecycleScope.launch {
-                    viewModel.signUp(firstName, lastName, email, password, repeatPassword)
+                    viewModel.signUp(firstName, lastName, email, password)
                     viewModel.registerResponse.collect {
                         when (it) {
                             is Resource.Success -> {

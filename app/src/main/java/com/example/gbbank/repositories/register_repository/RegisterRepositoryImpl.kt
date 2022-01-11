@@ -17,7 +17,7 @@ class RegisterRepositoryImpl @Inject constructor(
     private val repository: DbAddUserRepositoryImpl
 ) : RegisterRepository {
 
-    override suspend fun register(firstName: String, lastName: String, email: String, password: String, repeatPassword: String)
+    override suspend fun register(firstName: String, lastName: String, email: String, password: String)
     : Resource<AuthResult> =
         withContext(Dispatchers.IO) {
             return@withContext try {

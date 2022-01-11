@@ -7,12 +7,14 @@
     android:background="#F6F6FF"
     android:orientation="vertical"
     android:overScrollMode="never"
-    android:padding="15dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="20dp"
+    android:paddingStart="20dp"
     tools:context=".ui.exchange.ExchangeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,11 +32,11 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/rectangle_shape"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="match_parent"
                 android:hint="@string/amount"
@@ -49,6 +51,7 @@
                     android:inputType="numberDecimal"
                     android:cursorVisible="false"
                     android:lines="1"
+
                     tools:ignore="RtlSymmetry" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,25 +93,11 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnConvert"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/primary_button"
-                android:fontFamily="@font/poppinsmedium"
-                android:letterSpacing="0.00"
-                android:text="@string/convert"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp" />
-
             <LinearLayout
                 android:id="@+id/llResult"
                 tools:visibility="visible"
                 android:visibility="gone"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
@@ -171,6 +160,7 @@
             android:gravity="center_vertical"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
+            android:layout_marginTop="10dp"
             android:weightSum="3">
 
 
@@ -227,6 +217,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"
+            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

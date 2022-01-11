@@ -1,10 +1,10 @@
 package com.example.gbbank.ui.exchange
 
-import android.util.Log
+import android.content.Context
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gbbank.R
 import com.example.gbbank.adapters.RatesAdapter
 import com.example.gbbank.databinding.FragmentExchangeBinding
-import com.example.gbbank.extensions.hide
 import com.example.gbbank.extensions.remove
 import com.example.gbbank.extensions.show
 import com.example.gbbank.extensions.showSnackBar
@@ -24,10 +23,8 @@ import com.example.gbbank.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 @AndroidEntryPoint
-
 class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeBinding::inflate) {
 
     private val viewModel: ExchangeViewModel by viewModels()
@@ -39,9 +36,6 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
 
 
     private fun listeners() {
-        binding.btnConvert.setOnClickListener {
-
-        }
         binding.ivSwap.setOnClickListener {
             val from = binding.spFrom
             val to = binding.spTo
@@ -49,6 +43,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
             val fromPosition = from.selectedItemPosition
             from.setSelection(to.selectedItemPosition)
             to.setSelection(fromPosition)
+            exchangeCheck()
         }
         binding.etAmount.addTextChangedListener {
             if (it!!.isEmpty()) {
@@ -57,19 +52,20 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                 exchangeCheck()
             }
         }
-        binding.btnConvert.setOnClickListener {
-            exchangeCheck()
-        }
+        spListeners()
     }
 
     private fun exchangeCheck() {
         try {
-            val amount = binding.etAmount.text.toString().toInt()
+            val amount = binding.etAmount.text.toString()
             val from = binding.spFrom.selectedItem.toString()
             val to = binding.spTo.selectedItem.toString()
-            exchange(amount, from, to)
+            if(amount.isNotEmpty()) {
+                exchange(amount.toInt(), from, to)
+            }
         } catch (e: Exception) {
             view?.showSnackBar(getString(R.string.sb_type_valid_number))
+
         }
     }
 
@@ -87,7 +83,6 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
                         view?.showSnackBar(it.errorMessage!!)
-                        Log.d("TAG", it.errorMessage.toString())
                     }
                     is Resource.Loading -> {
                         binding.progressBar.isVisible = true
@@ -151,6 +146,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
         val arrayAdapter =
             ArrayAdapter(requireContext(), R.layout.layout_spinner_item, currencyArray)
 
+
         binding.spFrom.adapter = arrayAdapter
         binding.spTo.adapter = arrayAdapter
 
@@ -159,4 +155,30 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
 
         listeners()
     }
+
+    private fun spListeners() {
+        binding.spFrom.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                exchangeCheck()
+                hideKeyBoard()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+        }
+
+        binding.spTo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                exchangeCheck()
+                hideKeyBoard()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+        }
+    }
+
+    private fun hideKeyBoard() {
+        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(requireView().windowToken, 0)
+    }
+
 }
