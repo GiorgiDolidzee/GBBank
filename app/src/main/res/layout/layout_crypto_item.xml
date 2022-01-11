@@ -18,7 +18,7 @@
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription"
-        tools:src="@color/teal_700" />
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/tvSymbol"
@@ -30,7 +30,7 @@
         tools:text="BTC"
         android:textSize="20sp"
         android:fontFamily="@font/poppinsmedium"
-        android:textColor="@color/black"
+        android:textColor="?attr/primaryTextColor"
         app:layout_constraintVertical_chainStyle="packed"/>
 
     <TextView
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivImage"
         android:layout_marginBottom="7dp"
-        android:textColor="@color/black"
+        android:textColor="?attr/secondaryTextColor"
         android:fontFamily="@font/poppinsregular"
         tools:text="Bitcoin"
         app:layout_constraintVertical_chainStyle="packed"/>
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsmedium"
         android:text="$"
-        android:textColor="@color/black"
+        android:textColor="?attr/primaryTextColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvPrice"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:fontFamily="@font/poppinsmedium"
-        android:textColor="@color/black"
+        android:textColor="?attr/primaryTextColor"
         android:textSize="20sp"
         android:layout_marginEnd="15dp"
         android:maxLength="20"

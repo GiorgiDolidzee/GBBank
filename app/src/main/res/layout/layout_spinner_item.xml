@@ -8,7 +8,7 @@
     android:paddingStart="30dp"
     android:paddingTop="10dp"
     android:paddingEnd="30dp"
-    android:textColor="@color/black"
+    android:textColor="?attr/primaryTextColor"
     android:textSize="15sp"
     tools:text="USD">
 

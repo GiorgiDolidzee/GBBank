@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6FF"
+    android:background="?attr/backgroundColor"
     tools:context=".ui.register.RegisterFragment">
 
     <LinearLayout
@@ -28,8 +28,9 @@
             android:layout_marginTop="1.5dp"
             android:fontFamily="@font/poppinsregular"
             android:text="@string/back"
-            android:textColor="@color/purple_500"
-            android:textSize="19sp" />
+            android:textColor="?attr/applicationPrimaryColor"
+            android:textSize="19sp"
+            tools:textColor="@color/application_primary_color" />
 
     </LinearLayout>
 
@@ -58,13 +59,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
             android:text="@string/lets_get_started"
-            android:textColor="@color/black"
+            android:textColor="?attr/primaryTextColor"
             android:textSize="17sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
+            android:textColor="?attr/secondaryTextColor"
             android:text="@string/create_your_own_account"
             android:textSize="15sp" />
 
@@ -82,6 +84,7 @@
                 android:layout_weight="1"
                 android:hint="@string/first_name"
                 app:endIconMode="clear_text">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFirstName"
                     android:layout_width="match_parent"
@@ -98,6 +101,7 @@
                 android:layout_weight="1"
                 android:hint="@string/last_name"
                 app:endIconMode="clear_text">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etLastName"
                     android:layout_width="match_parent"
@@ -114,6 +118,7 @@
             android:layout_marginTop="20dp"
             android:hint="@string/e_mail"
             app:endIconMode="clear_text">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
@@ -129,6 +134,7 @@
             android:layout_marginTop="15dp"
             android:hint="@string/password"
             app:endIconMode="password_toggle">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="backgroundColor" format="color" />
+    <attr name="secondaryBackgroundColor" format="color" />
+
+    <attr name="applicationPrimaryColor" format="color" />
+    <attr name="iconColor" format="color" />
+
+    <attr name="primaryTextColor" format="color" />
+    <attr name="secondaryTextColor" format="color" />
+    <attr name="textOnApplicationPrimaryColor" format="color" />
+
+    <attr name="white_black" format="color"/>
+    <attr name="black_white" format="color"/>
+</resources>

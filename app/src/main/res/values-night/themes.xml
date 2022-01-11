@@ -2,15 +2,22 @@
     <!-- Base application theme. -->
     <style name="Theme.GBBank" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- Custom Colors -->
+        <item name="applicationPrimaryColor">@color/application_primary_color</item>
+
+        <item name="backgroundColor">@color/background_color_dark</item>
+        <item name="secondaryBackgroundColor">@color/secondary_background_color_dark</item>
+        <item name="iconColor">@color/icon_color_dark</item>
+        <item name="primaryTextColor">@color/primary_text_color_dark</item>
+        <item name="secondaryTextColor">@color/secondary_text_color_dark</item>
+
+        <item name="white_black">@color/black</item>
+        <item name="black_white">@color/white</item>
     </style>
 </resources>

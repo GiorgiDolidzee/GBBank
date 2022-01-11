@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6FF"
+    android:background="?attr/backgroundColor"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.deposit.DepositFragment">
 
@@ -29,7 +29,8 @@
             android:layout_marginTop="1.5dp"
             android:fontFamily="@font/poppinsregular"
             android:text="@string/back"
-            android:textColor="@color/purple_500"
+            android:textColor="?attr/applicationPrimaryColor"
+            tools:textColor="@color/application_primary_color"
             android:textSize="19sp" />
 
     </LinearLayout>
@@ -57,7 +58,7 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/poppinsregular"
             android:text="@string/deposit"
-            android:textColor="@color/black"
+            android:textColor="?attr/primaryTextColor"
             android:textSize="30sp" />
 
         <com.google.android.material.textfield.TextInputLayout

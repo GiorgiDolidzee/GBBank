@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6FF"
+    android:background="?attr/backgroundColor"
     tools:context=".ui.profile.ProfileFragment">
 
     <ImageView
@@ -34,7 +34,7 @@
         android:layout_height="130dp"
         android:layout_marginBottom="20dp"
         android:elevation="4dp"
-        android:src="#F2F2F2"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -44,8 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsmedium"
-        android:textColor="@color/black"
+        android:textColor="?attr/primaryTextColor"
         android:textSize="20sp"
+        tools:text="GB Bank"
         app:layout_constraintEnd_toEndOf="@+id/circleImageView"
         app:layout_constraintStart_toStartOf="@+id/circleImageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -56,6 +57,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsregular"
         android:textSize="15sp"
+        android:textColor="@color/secondary_text_color"
+        tools:text="email@email.com"
         app:layout_constraintEnd_toEndOf="@+id/circleImageView"
         app:layout_constraintStart_toStartOf="@+id/circleImageView"
         app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
@@ -90,7 +93,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="@string/change_password"
-                android:textColor="@color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -116,7 +119,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="@string/app_information"
-                android:textColor="@color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -142,7 +145,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/poppinsmedium"
                 android:text="@string/sign_out"
-                android:textColor="@color/black"
+                android:textColor="?attr/primaryTextColor"
                 android:textSize="15sp" />
         </LinearLayout>
 

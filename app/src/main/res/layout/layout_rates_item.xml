@@ -17,7 +17,7 @@
         android:layout_marginStart="10dp"
         android:layout_weight="1"
         android:fontFamily="@font/poppinsmedium"
-        android:textColor="@color/black"
+        android:textColor="?attr/primaryTextColor"
         android:textSize="20sp"
         tools:text="USD" />
 

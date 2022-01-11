@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6FF"
+    android:background="?attr/backgroundColor"
     tools:context=".ui.getstarted.GetStartedFragment">
 
     <ImageView
@@ -39,19 +39,20 @@
             android:fontFamily="@font/poppinsmedium"
             android:gravity="center"
             android:text="@string/welcome_to_gb_bank"
-            android:textColor="@color/black"
+            android:textColor="?attr/primaryTextColor"
             android:textSize="26sp" />
 
         <TextView
             android:layout_width="301dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="?attr/secondaryTextColor"
             android:text="@string/gbbank_description"
             android:textSize="17sp" />
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
         android:layout_height="55dp"

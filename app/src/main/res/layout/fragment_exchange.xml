@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6FF"
+    android:background="?attr/backgroundColor"
     android:orientation="vertical"
     android:overScrollMode="never"
     android:paddingTop="20dp"
@@ -23,7 +23,7 @@
             android:fontFamily="@font/poppinsmedium"
             android:letterSpacing="0.00"
             android:text="@string/currency_converter"
-            android:textColor="@color/black"
+            android:textColor="?attr/primaryTextColor"
             android:textSize="22sp" />
 
         <LinearLayout
@@ -109,7 +109,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/grey"
+                    android:textColor="?attr/secondaryTextColor"
                     android:textSize="20sp"
                     tools:text="999.9 USD"
                     tools:visibility="visible" />
@@ -121,7 +121,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/grey"
+                    android:textColor="?attr/secondaryTextColor"
                     android:visibility="visible"
                     android:textSize="20sp"
                     android:text=" = "
@@ -134,7 +134,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/primaryTextColor"
                     android:textSize="25sp"
                     tools:text="999.9 GEL"
                     tools:visibility="visible" />
@@ -151,7 +151,7 @@
             android:fontFamily="@font/poppinsmedium"
             android:letterSpacing="0.00"
             android:text="@string/currency"
-            android:textColor="@color/black"
+            android:textColor="?attr/primaryTextColor"
             android:textSize="22sp" />
 
         <LinearLayout
@@ -170,6 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
+                android:textColor="?attr/secondaryTextColor"
                 android:fontFamily="@font/poppinsregular"
                 android:text="@string/currency_name"
                 android:textAllCaps="true"
@@ -181,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_weight="1"
+                android:textColor="?attr/secondaryTextColor"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="end"
                 android:text="@string/buy"
@@ -195,6 +197,7 @@
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppinsregular"
+                android:textColor="?attr/secondaryTextColor"
                 android:gravity="end"
                 android:text="@string/sell"
                 android:textAllCaps="true"
