@@ -17,7 +17,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-
 class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding::inflate) {
 
     private val viewModel: CryptoViewModel by viewModels()
@@ -62,6 +61,7 @@ class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding
         adapter = CryptoAdapter(data!!)
         binding.rvCrypto.adapter = adapter
         binding.rvCrypto.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvCrypto.startLayoutAnimation()
         openCryptoFragment()
     }
 
@@ -78,4 +78,5 @@ class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding
             ))
         }
     }
+
 }

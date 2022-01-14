@@ -17,8 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.Theme_GBBank)
-
+//        setTheme(R.style.Theme_GBBank)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 

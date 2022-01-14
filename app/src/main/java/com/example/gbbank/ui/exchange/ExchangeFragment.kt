@@ -100,6 +100,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
         adapter = RatesAdapter(data)
         binding.rvRates.adapter = adapter
         binding.rvRates.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvRates.startLayoutAnimation()
         binding.rvRates.isNestedScrollingEnabled
     }
 

@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import java.net.UnknownHostException
 import java.util.concurrent.TimeoutException
 
 class ResponseHandler {
@@ -17,6 +18,7 @@ class ResponseHandler {
             is FirebaseNetworkException -> Resource.Error("Check your internet connection")
             is IllegalArgumentException -> Resource.Error("Enter valid values")
             is TimeoutException -> Resource.Error("Check your internet connection")
+            is UnknownHostException -> Resource.Error("Check your internet connection")
             else -> Resource.Error(e.toString())
         }
     }

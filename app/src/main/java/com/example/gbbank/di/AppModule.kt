@@ -39,8 +39,7 @@ object AppModule {
     @Singleton
     fun provideRegisterRepository(
         auth: FirebaseAuth, handler: ResponseHandler, repository: DbAddUserRepositoryImpl
-    )
-            : RegisterRepository = RegisterRepositoryImpl(auth, handler, repository)
+    ): RegisterRepository = RegisterRepositoryImpl(auth, handler, repository)
 
     @Provides
     @Singleton
@@ -118,4 +117,5 @@ object AppModule {
         .client(OkHttpClient.Builder().apply { addInterceptor(ExchangeInterceptor()) }.build())
         .build()
         .create(ExchangeApi::class.java)
+
 }

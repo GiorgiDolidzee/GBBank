@@ -34,6 +34,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCrypto"
             android:layout_width="match_parent"
+            android:layoutAnimation="@anim/item_layout_anim"
             android:layout_height="match_parent"
             android:overScrollMode="never" />
 
