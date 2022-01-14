@@ -19,7 +19,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private val viewModel: LoginViewModel by viewModels()
 
     override fun start() {
-        checkIfLogged()
         val activity = requireActivity() as? MainActivity
         activity?.hideToolBar()
         listener()
@@ -34,28 +33,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
         binding.tvForgotPassword.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
-        }
-    }
-
-    private fun checkIfLogged() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.logged.collect {
-                when(it) {
-                    is Resource.Success -> {
-                        binding.progressBar.isVisible = false
-                        if(it.data == false) {
-                            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
-                        }
-                    }
-                    is Resource.Error -> {
-                        binding.progressBar.isVisible = false
-                        view?.showSnackBar(it.errorMessage!!)
-                    }
-                    is Resource.Loading -> {
-                        binding.progressBar.isVisible = true
-                    }
-                }
-            }
         }
     }
 

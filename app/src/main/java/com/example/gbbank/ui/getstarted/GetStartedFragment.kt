@@ -1,21 +1,8 @@
 package com.example.gbbank.ui.getstarted
 
-import android.content.Context
-import android.view.animation.AnimationUtils
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
-import androidx.datastore.preferences.preferencesDataStoreFile
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.example.gbbank.R
+import android.util.Log.d
 import com.example.gbbank.databinding.FragmentGetStartedBinding
 import com.example.gbbank.ui.base.BaseFragment
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.withContext
-import java.util.prefs.Preferences
 
 
 class GetStartedFragment : BaseFragment<FragmentGetStartedBinding>(FragmentGetStartedBinding::inflate) {
@@ -24,14 +11,15 @@ class GetStartedFragment : BaseFragment<FragmentGetStartedBinding>(FragmentGetSt
 
     override fun start() {
 //        checkIfIsNewUser()
-        listener()
+        d("tag", "tag")
+//        listener()
     }
 
-    private fun listener() {
-        binding.btnGetStarted.setOnClickListener {
-            findNavController().navigate(GetStartedFragmentDirections.actionGetStartedFragmentToLoginFragment())
-        }
-    }
+//    private fun listener() {
+//        binding.btnGetStarted.setOnClickListener {
+//            findNavController().navigate(GetStartedFragmentDirections.actionGetStartedFragmentToLoginFragment())
+//        }
+//    }
 
 //    private fun checkIfIsNewUser() {
 //        viewLifecycleOwner.lifecycleScope.launchWhenStarted {

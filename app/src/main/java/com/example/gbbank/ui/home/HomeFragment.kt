@@ -33,6 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             viewModel.realTimeResponse.collect {
                 when(it) {
                     is Resource.Success -> {
+                        enableButtons()
                         binding.progressBar.isVisible = false
                         binding.tvName.text = it.data?.firstName
                         binding.tvBalance.text = it.data?.balance.toString()
@@ -45,6 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     }
                     is Resource.Loading -> {
                         binding.progressBar.isVisible = true
+                        disableButtons()
                     }
                 }
             }
@@ -58,6 +60,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             ))
         }
 
+    }
+
+    private fun disableButtons() {
+        with(binding) {
+            btnDeposit.isEnabled = false
+            btnDeposit.isClickable = false
+        }
+    }
+
+    private fun enableButtons() {
+        with(binding) {
+            btnDeposit.isEnabled = true
+            btnDeposit.isClickable = true
+        }
     }
 
 }

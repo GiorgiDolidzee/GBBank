@@ -77,6 +77,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                 when (it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
+                        enableButtons()
                         rateOperations(it.data)
                         makeSpinnerArray(it.data)
                     }
@@ -85,6 +86,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
+                        disableButtons()
                         binding.progressBar.isVisible = true
                     }
                 }
@@ -111,6 +113,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                 when (it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
+                        enableButtons()
                         showExchangeResult(it.data)
                     }
                     is Resource.Error -> {
@@ -118,6 +121,7 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
+                        disableButtons()
                         binding.progressBar.isVisible = true
                     }
                 }
@@ -180,6 +184,24 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
     private fun hideKeyBoard() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
+    }
+
+    private fun disableButtons() {
+        with(binding) {
+            ivSwap.isEnabled = false
+            ivSwap.isClickable = false
+            etAmount.isEnabled = false
+            etAmount.isClickable = false
+        }
+    }
+
+    private fun enableButtons() {
+        with(binding) {
+            ivSwap.isEnabled = true
+            ivSwap.isClickable = true
+            etAmount.isEnabled = true
+            etAmount.isClickable = true
+        }
     }
 
 }
