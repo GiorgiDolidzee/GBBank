@@ -27,7 +27,7 @@
             android:id="@+id/tvCrypto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
+            android:fontFamily="@font/poppinsmedium"
             android:gravity="center_horizontal"
             android:text="@string/crypto"
             android:textColor="?attr/primaryTextColor"

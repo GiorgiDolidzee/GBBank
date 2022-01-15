@@ -16,15 +16,12 @@ class ResetPasswordViewModel @Inject constructor(
     private val repository: ResetPasswordRepositoryImpl
 ) : ViewModel() {
 
-    val resetPasswordResponse = MutableSharedFlow<Resource<Void>>()
+    var resetPasswordResponse = MutableSharedFlow<Resource<String>>()
 
     fun resetPassword(email: String) =
         viewModelScope.launch {
-            resetPasswordResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
-                resetPasswordResponse.emit(
-                    repository.resetPassword(email)
-                )
+                resetPasswordResponse.emit(repository.resetPassword(email))
             }
         }
 

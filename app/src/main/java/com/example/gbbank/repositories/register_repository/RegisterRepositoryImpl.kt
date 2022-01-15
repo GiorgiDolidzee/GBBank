@@ -23,7 +23,8 @@ class RegisterRepositoryImpl @Inject constructor(
             return@withContext try {
                 val result = auth.createUserWithEmailAndPassword(email, password).await()
                 val currentUser = auth.currentUser?.uid
-                val user = User(firstName, lastName, email)
+                val defaultPhoto = "https://www.uvu.edu/biology/research/heath_ogden/images/ogdenlab_default.jpg"
+                val user = User(firstName, lastName, email, defaultPhoto)
                 repository.addUserToDb(currentUser!!, user)
                 responseHandler.handleSuccess(result)
             } catch (exception: Exception) {

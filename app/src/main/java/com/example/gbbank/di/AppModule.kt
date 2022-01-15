@@ -11,6 +11,8 @@ import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceReposi
 import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepository
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
+import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepository
+import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepositoryImpl
 import com.example.gbbank.repositories.exchange_repository.ExchangeRepositoryImpl
 import com.example.gbbank.repositories.login_repository.LoginRepository
 import com.example.gbbank.repositories.login_repository.LoginRepositoryImpl
@@ -64,6 +66,12 @@ object AppModule {
     fun provideAddBalanceRepository(
         auth: FirebaseAuth, db: FirebaseDatabase, handler: ResponseHandler
     ): DbAddBalanceRepository = DbAddBalanceRepositoryImpl(auth, db, handler)
+
+    @Provides
+    @Singleton
+    fun provideEditProfileRepository(
+        handler: ResponseHandler, db: FirebaseDatabase, auth: FirebaseAuth
+    ): EditProfileRepository = EditProfileRepositoryImpl(handler, db, auth)
 
     @Provides
     @Singleton

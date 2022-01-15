@@ -28,16 +28,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginBottom="20dp"
-        android:elevation="4dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_nophoto"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEdit"
+        android:layout_width="55dp"
+        android:layout_height="35dp"
+        android:text="@string/edit"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:layout_marginBottom="-13dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView" />
+
 
     <TextView
         android:id="@+id/tvFullName"
@@ -166,5 +180,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

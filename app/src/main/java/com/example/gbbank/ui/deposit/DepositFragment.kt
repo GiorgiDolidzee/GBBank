@@ -32,6 +32,7 @@ class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBind
     private fun listener() {
         binding.btnAddToBalance.setOnClickListener {
             val amount = binding.etAmount.text.toString()
+            if("," in amount) { amount.replace(",", ".") }
             addToBalance(amount)
         }
 

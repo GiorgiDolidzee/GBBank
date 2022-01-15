@@ -20,9 +20,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private var lastBalance: Double? = 0.0
 
     override fun start() {
-        realTimeCallBack()
         val activity = requireActivity() as? MainActivity
         activity?.showToolBar()
+        realTimeCallBack()
         listener()
     }
 

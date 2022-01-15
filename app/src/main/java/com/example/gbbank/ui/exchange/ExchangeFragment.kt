@@ -113,7 +113,6 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                 when (it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
-                        enableButtons()
                         showExchangeResult(it.data)
                     }
                     is Resource.Error -> {
@@ -121,7 +120,6 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
-                        disableButtons()
                         binding.progressBar.isVisible = true
                     }
                 }

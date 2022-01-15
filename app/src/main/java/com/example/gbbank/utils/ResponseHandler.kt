@@ -23,7 +23,7 @@ class ResponseHandler {
         }
     }
 
-    fun <T> handleSuccess(data: T) : Resource<T> {
+    fun <T> handleSuccess(data: T? = null) : Resource<T> {
         return Resource.Success(data)
     }
 }

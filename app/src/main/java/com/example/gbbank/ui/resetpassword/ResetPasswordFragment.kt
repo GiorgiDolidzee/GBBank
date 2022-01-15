@@ -19,10 +19,10 @@ class ResetPasswordFragment :
     private val viewModel: ResetPasswordViewModel by viewModels()
 
     override fun start() {
-        listener()
+        listeners()
     }
 
-    private fun listener() {
+    private fun listeners() {
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }

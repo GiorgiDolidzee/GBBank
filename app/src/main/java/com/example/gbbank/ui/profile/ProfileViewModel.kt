@@ -1,8 +1,10 @@
 package com.example.gbbank.ui.profile
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gbbank.model.User
+import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
 import com.google.firebase.auth.FirebaseAuth
@@ -21,12 +23,14 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     private val auth: FirebaseAuth,
     private val db: FirebaseDatabase,
-    private val responseHandler: ResponseHandler
+    private val responseHandler: ResponseHandler,
+    private val editProfileRepository: EditProfileRepositoryImpl
 ) : ViewModel() {
 
 
     val realTimeResponse = MutableSharedFlow<Resource<User>>()
     val signOutResponse = MutableSharedFlow<Resource<Unit>>()
+    val editProfileResponse = MutableSharedFlow<Resource<String>>()
 
     init {
         realTimeCallBack()
@@ -55,6 +59,20 @@ class ProfileViewModel @Inject constructor(
 
                 } catch (e: Exception) {
                     responseHandler.handleException<Resource<User>>(e)
+                }
+            }
+        }
+    }
+
+    fun editProfile(url: String) {
+        viewModelScope.launch {
+            editProfileResponse.emit(Resource.Loading())
+            withContext(Dispatchers.IO) {
+                try {
+                    Log.d("photoViewModel", url)
+                    editProfileResponse.emit(editProfileRepository.editProfile(url))
+                } catch (e: java.lang.Exception) {
+                    responseHandler.handleException<Resource<String>>(e)
                 }
             }
         }

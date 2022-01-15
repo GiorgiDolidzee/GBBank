@@ -58,4 +58,6 @@
     <string name="change_password">Change password</string>
     <string name="app_information">App information</string>
     <string name="sign_out">Sign out</string>
+    <string name="edit">Edit</string>
+    <string name="image_url">Image url</string>
 </resources>
