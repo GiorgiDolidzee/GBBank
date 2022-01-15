@@ -1,9 +1,9 @@
 package com.example.gbbank.ui.profile
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gbbank.model.User
+import com.example.gbbank.repositories.change_password_repository.ChangePasswordRepositoryImpl
 import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepositoryImpl
 import com.example.gbbank.utils.Resource
 import com.example.gbbank.utils.ResponseHandler
@@ -24,13 +24,15 @@ class ProfileViewModel @Inject constructor(
     private val auth: FirebaseAuth,
     private val db: FirebaseDatabase,
     private val responseHandler: ResponseHandler,
-    private val editProfileRepository: EditProfileRepositoryImpl
+    private val editProfileRepository: EditProfileRepositoryImpl,
+    private val changePasswordRepository: ChangePasswordRepositoryImpl
 ) : ViewModel() {
 
 
     val realTimeResponse = MutableSharedFlow<Resource<User>>()
     val signOutResponse = MutableSharedFlow<Resource<Unit>>()
     val editProfileResponse = MutableSharedFlow<Resource<String>>()
+    val changePasswordResponse = MutableSharedFlow<Resource<String>>()
 
     init {
         realTimeCallBack()
@@ -69,10 +71,22 @@ class ProfileViewModel @Inject constructor(
             editProfileResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
                 try {
-                    Log.d("photoViewModel", url)
                     editProfileResponse.emit(editProfileRepository.editProfile(url))
                 } catch (e: java.lang.Exception) {
-                    responseHandler.handleException<Resource<String>>(e)
+                    editProfileResponse.emit(responseHandler.handleException(e))
+                }
+            }
+        }
+    }
+
+    fun changePassword(password: String) {
+        viewModelScope.launch {
+            changePasswordResponse.emit(Resource.Loading())
+            withContext(Dispatchers.IO) {
+                try {
+                    changePasswordResponse.emit(changePasswordRepository.changePassword(password))
+                } catch (e: java.lang.Exception) {
+                    changePasswordResponse.emit(responseHandler.handleException(e))
                 }
             }
         }

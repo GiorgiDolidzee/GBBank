@@ -8,6 +8,8 @@ import com.example.gbbank.data.exchange_rates.RatesApi
 import com.example.gbbank.data.exchange_rates.RatesInterceptor
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepository
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
+import com.example.gbbank.repositories.change_password_repository.ChangePasswordRepository
+import com.example.gbbank.repositories.change_password_repository.ChangePasswordRepositoryImpl
 import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepository
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
@@ -72,6 +74,12 @@ object AppModule {
     fun provideEditProfileRepository(
         handler: ResponseHandler, db: FirebaseDatabase, auth: FirebaseAuth
     ): EditProfileRepository = EditProfileRepositoryImpl(handler, db, auth)
+
+    @Provides
+    @Singleton
+    fun provideChangePasswordRepository(
+        auth: FirebaseAuth, handler: ResponseHandler
+    ): ChangePasswordRepository = ChangePasswordRepositoryImpl(auth, handler)
 
     @Provides
     @Singleton

@@ -60,4 +60,5 @@
     <string name="sign_out">Sign out</string>
     <string name="edit">Edit</string>
     <string name="image_url">Image url</string>
+    <string name="new_password">New password</string>
 </resources>
