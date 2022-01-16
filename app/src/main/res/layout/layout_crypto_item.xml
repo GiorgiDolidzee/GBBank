@@ -20,7 +20,7 @@
         tools:ignore="ContentDescription"
         tools:src="@mipmap/ic_launcher" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:textColor="?attr/primaryTextColor"
         app:layout_constraintVertical_chainStyle="packed"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,11 +45,11 @@
         tools:text="Bitcoin"
         app:layout_constraintVertical_chainStyle="packed"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsmedium"
-        android:text="$"
+        android:text="@string/usd"
         android:textColor="?attr/primaryTextColor"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -77,11 +77,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         val url = dialogLayout.findViewById<EditText>(R.id.etUrl)
 
         with(builder) {
-            setTitle("Edit profile")
-            setPositiveButton("Save"){ dialog, which ->
+            setTitle(getString(R.string.edit_profile))
+            setPositiveButton(getString(R.string.save)){ dialog, which ->
                 saveProfilePhoto(url.text.toString())
             }
-            setNegativeButton("Cancel") { dialog, which -> }
+            setNegativeButton(getString(R.string.cancel)) { dialog, which -> }
 
             setView(dialogLayout)
             show()
@@ -95,7 +95,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 when(it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
-                        view?.showSnackBar("\uD83D\uDCCE Profile photo changed")
+                        view?.showSnackBar("\uD83D\uDCCE ${getString(R.string.profile_photo_changed)}")
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
@@ -139,11 +139,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         val password = dialogLayout.findViewById<EditText>(R.id.etNewPassword)
 
         with(builder) {
-            setTitle("Change password")
-            setPositiveButton("Change"){ dialog, which ->
+            setTitle(getString(R.string.change_password))
+            setPositiveButton(getString(R.string.change)){ dialog, which ->
                 savePassword(password.text.toString())
             }
-            setNegativeButton("Cancel") { dialog, which -> }
+            setNegativeButton(getString(R.string.cancel)) { dialog, which -> }
 
             setView(dialogLayout)
             show()
@@ -157,7 +157,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 when(it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
-                        view?.showSnackBar("\uD83D\uDD12 Password changed")
+                        view?.showSnackBar("\uD83D\uDD12 ${getString(R.string.password_changed)}")
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
@@ -172,13 +172,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
     }
 
     private fun showAppInformation() {
+        val message = "${getString(R.string.gbbank_description)} \n \n" +
+                "${getString(R.string.description_p2)} \n \n" +
+                "\uD83D\uDCF1 ${getString(R.string.description_p3)} ${appVersion()}"
+
         val builder = AlertDialog.Builder(requireContext())
         with(builder) {
-            setTitle("App information")
-            setMessage("Digital bank to manage your balance, track exchange rates, and ease your life. \n \n" +
-                    "⚡ Developers: Giorgi Dolidze & Bachana Mosulishvili \n \n" +
-                    "\uD83D\uDCF1 Version: ${appVersion()}")
-            setPositiveButton("Quit") { dialog, i ->
+            setTitle(getString(R.string.app_information))
+            setMessage(message)
+            setPositiveButton(getString(R.string.quit)) { dialog, i ->
                 dialog.dismiss()
             }
             show()

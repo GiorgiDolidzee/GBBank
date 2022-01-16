@@ -7,7 +7,7 @@
     android:background="?attr/backgroundColor"
     tools:context=".ui.getstarted.GetStartedFragment">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,13 +27,13 @@
         app:layout_constraintBottom_toTopOf="@+id/btnGetStarted"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="180dp"
             android:layout_height="158dp"
-            android:contentDescription="@string/logo"
-            android:background="@drawable/logo" />
+            android:background="@drawable/logo"
+            android:contentDescription="@string/logo" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
@@ -42,28 +42,28 @@
             android:textColor="?attr/primaryTextColor"
             android:textSize="26sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="301dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="?attr/secondaryTextColor"
             android:text="@string/gbbank_description"
+            android:textColor="?attr/secondaryTextColor"
             android:textSize="17sp" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGetStarted"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_margin="20dp"
-        android:text="@string/get_started"
-        android:textAllCaps="false"
-        android:textSize="17sp"
-        android:textColor="@color/white"
+        android:background="@drawable/primary_button"
         android:fontFamily="@font/poppinsmedium"
         android:letterSpacing="0"
-        android:background="@drawable/primary_button"
+        android:text="@string/get_started"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

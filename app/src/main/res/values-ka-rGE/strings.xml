@@ -40,10 +40,23 @@
     <string name="rank">პოზიცია</string>
     <string name="high_24h">მაქს. 24 სთ</string>
     <string name="sb_type_valid_number">გთხოვთ შეიყვანეთ სწორი მონაცემები!</string>
-    <string name="coingecko_disclaimer">კრიპტოვალუტის ფასებს უზრუნველყოფს CoinGecko. ყველა უფლება დაცულია.</string>
     <string name="currency_name">ვალუტა</string>
     <string name="low_24h">მინ. 24 სთ</string>
     <string name="change_password">პაროლის შეცვლა</string>
     <string name="app_information">ინფორმაცია აპლიკაციაზე</string>
     <string name="sign_out">გასვლა</string>
+    <string name="edit">შეცვლა</string>
+    <string name="image_url">ფოტოს URL</string>
+    <string name="new_password">ახალი პაროლი</string>
+    <string name="application_by">აპლიკაციაზე მუშაობდნენ:</string>
+    <string name="giorgi_dolidze_amp_bachana_mosulishvili"><![CDATA[გიორგი დოლიძე & ბაჩანა მოსულიშვილი]]></string>
+    <string name="description_p2"><![CDATA[⚡ დეველოპერები: გიორგი დოლიძე & ბაჩანა მოსულიშვილი]]></string>
+    <string name="description_p3">ვერსია:</string>
+    <string name="change">შეცვლა</string>
+    <string name="cancel">გაუქმება</string>
+    <string name="password_changed">პაროლი შეიცვალა</string>
+    <string name="quit">გამოსვლა</string>
+    <string name="profile_photo_changed">პროფილის ფოტო შეიცვალა</string>
+    <string name="save">შენახვა</string>
+    <string name="edit_profile">პროფილის შეცვლა</string>
 </resources>

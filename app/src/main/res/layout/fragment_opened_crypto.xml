@@ -12,9 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnBack"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCrypto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -53,7 +53,7 @@
                 android:layout_height="90dp"
                 android:src="@mipmap/ic_launcher" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,16 +63,16 @@
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="30sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangePercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="?attr/secondaryTextColor"
                 android:fontFamily="@font/poppinsregular"
-                android:text="@string/_0_2828" />
+                android:text="@string/_0_2828"
+                android:textColor="?attr/secondaryTextColor" />
 
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llRank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_rank" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -97,7 +97,7 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="16sp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvRank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,9 +108,9 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="17sp"
                     tools:ignore="RtlHardcoded" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llHigh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/ic_high" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -136,7 +136,7 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="16sp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvHigh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,9 +147,9 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="17sp"
                     tools:ignore="RtlHardcoded" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llLow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                     android:layout_gravity="center"
                     android:background="@drawable/ic_low" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -175,7 +175,7 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="16sp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvLow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -186,12 +186,10 @@
                     android:textColor="?attr/primaryTextColor"
                     android:textSize="17sp"
                     tools:ignore="RtlHardcoded" />
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

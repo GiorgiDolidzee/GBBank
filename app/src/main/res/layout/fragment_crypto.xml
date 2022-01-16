@@ -8,15 +8,15 @@
     tools:context=".ui.crypto.CryptoFragment"
     tools:ignore="ScrollViewCount">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppinsmedium"
-        android:textColor="?attr/primaryTextColor"
         android:text="@string/top_50_cryptos"
+        android:textColor="?attr/primaryTextColor"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,16 +26,16 @@
         android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCrypto"
             android:layout_width="match_parent"
-            android:layoutAnimation="@anim/item_layout_anim"
             android:layout_height="match_parent"
+            android:layoutAnimation="@anim/item_layout_anim"
             android:overScrollMode="never" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

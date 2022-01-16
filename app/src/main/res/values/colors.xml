@@ -18,6 +18,8 @@
     <color name="primary_text_color_dark">#E7E6E7</color>
     <color name="secondary_text_color_dark">#7d7c7e</color>
     <color name="black">#000000</color>
+
+
     <color name="green">#33df72</color>
     <color name="red">#ff2147</color>
     <color name="gold">#f7931a</color>

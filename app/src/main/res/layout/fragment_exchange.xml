@@ -7,17 +7,17 @@
     android:background="?attr/backgroundColor"
     android:orientation="vertical"
     android:overScrollMode="never"
+    android:paddingStart="20dp"
     android:paddingTop="20dp"
     android:paddingEnd="20dp"
-    android:paddingStart="20dp"
     tools:context=".ui.exchange.ExchangeFragment">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
@@ -26,7 +26,7 @@
             android:textColor="?attr/primaryTextColor"
             android:textSize="22sp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -37,8 +37,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:hint="@string/amount"
                 app:endIconMode="clear_text">
 
@@ -46,12 +46,11 @@
                     android:id="@+id/etAmount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="start"
-                    android:paddingStart="20dp"
-                    android:inputType="numberDecimal"
                     android:cursorVisible="false"
+                    android:gravity="start"
+                    android:inputType="numberDecimal"
                     android:lines="1"
-
+                    android:paddingStart="20dp"
                     tools:ignore="RtlSymmetry" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +71,7 @@
                     android:padding="10dp"
                     android:verticalScrollbarPosition="right" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivSwap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,16 +92,16 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <LinearLayout
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llResult"
-                tools:visibility="visible"
-                android:visibility="gone"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvFrom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,20 +113,20 @@
                     tools:text="999.9 USD"
                     tools:visibility="visible" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvEquals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textColor="?attr/secondaryTextColor"
-                    android:visibility="visible"
-                    android:textSize="20sp"
                     android:text=" = "
+                    android:textColor="?attr/secondaryTextColor"
+                    android:textSize="20sp"
+                    android:visibility="visible"
                     tools:ignore="HardcodedText" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -139,12 +138,12 @@
                     tools:text="999.9 GEL"
                     tools:visibility="visible" />
 
-            </LinearLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -154,42 +153,41 @@
             android:textColor="?attr/primaryTextColor"
             android:textSize="22sp" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:layout_marginTop="10dp"
             android:weightSum="3">
 
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCurrency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:textColor="?attr/secondaryTextColor"
                 android:fontFamily="@font/poppinsregular"
                 android:text="@string/currency_name"
                 android:textAllCaps="true"
+                android:textColor="?attr/secondaryTextColor"
                 android:textSize="15sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvBuyPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_weight="1"
-                android:textColor="?attr/secondaryTextColor"
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="end"
                 android:text="@string/buy"
                 android:textAllCaps="true"
+                android:textColor="?attr/secondaryTextColor"
                 android:textSize="15sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvSellPrice"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -197,21 +195,21 @@
                 android:layout_marginEnd="15dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppinsregular"
-                android:textColor="?attr/secondaryTextColor"
                 android:gravity="end"
                 android:text="@string/sell"
                 android:textAllCaps="true"
+                android:textColor="?attr/secondaryTextColor"
                 android:textSize="15sp" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:overScrollMode="never"
             android:layoutAnimation="@anim/item_layout_anim"
+            android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swipeRefresh" />
 
@@ -220,15 +218,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 
-    </LinearLayout>
-
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>
