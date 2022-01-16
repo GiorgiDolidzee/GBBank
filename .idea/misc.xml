@@ -18,6 +18,7 @@
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_linear_arrow_swap_horizontal.xml" value="0.1671875" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_lines.xml" value="0.4203703703703704" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_low.xml" value="0.1671875" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_nophoto.xml" value="0.4203703703703704" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_profile.xml" value="0.4203703703703704" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_profileshape.xml" value="0.4203703703703704" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/drawable/ic_rank.xml" value="0.4203703703703704" />
@@ -32,7 +33,7 @@
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_deposit.xml" value="0.32382246376811596" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_exchange.xml" value="0.33" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_get_started.xml" value="0.2318840579710145" />
-        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_home.xml" value="0.32382246376811596" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_home.xml" value="0.47580174927113705" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_login.xml" value="0.2318840579710145" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_opened_crypto.xml" value="0.25" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/fragment_profile.xml" value="0.33589743589743587" />
@@ -43,6 +44,7 @@
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/layout_edit_photo.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/layout_rates_item.xml" value="0.33" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/layout_spinner_item.xml" value="0.26842105263157895" />
+        <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/shadow.xml" value="0.3480119709277469" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/layout/splash_screen_fragment.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3487179487179487" />
         <entry key="..\:/Users/bacha/AndroidStudioProjects/GBBank/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

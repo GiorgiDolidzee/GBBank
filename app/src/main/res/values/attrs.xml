@@ -12,4 +12,6 @@
 
     <attr name="white_black" format="color"/>
     <attr name="black_white" format="color"/>
+
+    <attr name="logo" format="reference"/>
 </resources>

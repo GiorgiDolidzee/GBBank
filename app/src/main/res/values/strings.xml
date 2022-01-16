@@ -2,13 +2,13 @@
     <string name="app_name" translatable="false">GB Bank</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="get_started">Get Started</string>
-    <string name="gbbank_description">Digital bank to manage your balance, track exchange rates and ease your life.</string>
-    <string name="welcome_to_gb_bank">Welcome to GB Bank!</string>
-    <string name="hey_welcome_back">Hey, Welcome back!</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="don_t_have_an_account">Don\'t have an account?</string>
-    <string name="sign_up">Sign up</string>
-    <string name="we_ve_missed_you">We\'ve missed you</string>
+    <string name="gbbank_description">Digital Bank To Manage Your Balance, Track Exchange Rates And Ease Your Life.</string>
+    <string name="welcome_to_gb_bank">Welcome To GB Bank!</string>
+    <string name="hey_welcome_back">Hey, Welcome Back!</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account">Don\'t Have An Account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="we_ve_missed_you">We\'ve Missed You..</string>
     <string name="e_mail">E-mail</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
@@ -16,12 +16,12 @@
     <string name="logo" translatable="false">Logo</string>
     <string name="back">Back</string>
     <string name="lets_get_started">Let\'s Get Started</string>
-    <string name="create_your_own_account">Create your own account</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="repeat_password">Repeat password</string>
-    <string name="activation_link_will_be_sent_to_your_e_mail">Activation link will be sent to your e-mail</string>
-    <string name="reset_your_password">Reset your password</string>
+    <string name="create_your_own_account">Create Your Own Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="activation_link_will_be_sent_to_your_e_mail">Activation Link Will Be Sent To Your E-mail.</string>
+    <string name="reset_your_password">Reset Your Password</string>
     <string name="send">Send</string>
     <string name="welcome_back">Welcome Back,</string>
     <string name="name">Name</string>

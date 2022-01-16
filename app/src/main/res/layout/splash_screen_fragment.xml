@@ -11,7 +11,7 @@
         android:id="@+id/ivLogo"
         android:layout_width="200dp"
         android:layout_height="190dp"
-        android:background="@drawable/logo"
+        android:background="?attr/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

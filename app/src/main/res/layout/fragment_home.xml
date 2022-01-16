@@ -75,19 +75,23 @@
                     android:maxLength="10"
                     android:maxLines="1"
                     android:text="@string/_0_0"
+                    tools:text="256.0"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/poppinsregular"
                 android:textColor="@color/white"
                 android:textSize="17sp"
+                tools:text="Lorem Ipsum"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout2" />
 

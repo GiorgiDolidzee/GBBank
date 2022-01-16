@@ -20,5 +20,7 @@
 
         <item name="white_black">@color/black</item>
         <item name="black_white">@color/white</item>
+
+        <item name="logo">@drawable/logo_dark_mode</item>
     </style>
 </resources>
