@@ -8,7 +8,11 @@
         <!-- Secondary brand color. -->
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/backgroundColor</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi" >true</item>
+
+        <item name="android:navigationBarColor">?attr/white_black</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 
         <!-- Custom Colors -->
         <item name="applicationPrimaryColor">@color/application_primary_color</item>
