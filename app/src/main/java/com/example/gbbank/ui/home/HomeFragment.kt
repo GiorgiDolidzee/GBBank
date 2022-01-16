@@ -1,5 +1,6 @@
 package com.example.gbbank.ui.home
 
+import android.animation.ValueAnimator
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +28,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
 
-
     private fun realTimeCallBack() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.realTimeResponse.collect {
@@ -36,9 +36,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                         enableButtons()
                         binding.progressBar.isVisible = false
                         binding.tvName.text = it.data?.firstName
-                        binding.tvBalance.text = it.data?.balance.toString()
                         lastBalance = it.data?.balance
-                        binding.tvFullName.text = it.data?.firstName?.plus(" ").plus(it.data?.lastName)
+                        balanceAnim(it.data?.balance!!.toFloat(), it.data.balance.toString().length)
+                        binding.tvFullName.text = it.data.firstName?.plus(" ").plus(it.data.lastName)
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
@@ -51,6 +51,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 }
             }
         }
+    }
+
+    private fun balanceAnim(balance: Float, length: Int) {
+        val animator = ValueAnimator.ofFloat(0.0F, balance)
+        animator.setDuration(900)
+        animator.addUpdateListener { animation ->
+            val number = animation.animatedValue.toString().take(length)
+            binding.tvBalance.setText(number)
+        }
+        animator.start()
     }
 
     private fun listener() {

@@ -105,4 +105,20 @@
         android:padding="10dp"
         android:visibility="invisible" />
 
+    <ImageView
+        android:id="@+id/animBackground"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:background="@drawable/rectangle_shape"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animSuccessful"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/successful"/>
+
 </FrameLayout>
