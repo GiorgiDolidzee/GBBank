@@ -52,7 +52,13 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
                 exchangeCheck()
             }
         }
+
         spListeners()
+
+        binding.swipeRefresh.setOnRefreshListener {
+            start()
+            binding.swipeRefresh.isRefreshing = false
+        }
     }
 
     private fun exchangeCheck() {
@@ -76,18 +82,19 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
             viewModel.ratesResponse.collect {
                 when (it) {
                     is Resource.Success -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         enableButtons()
                         rateOperations(it.data)
                         makeSpinnerArray(it.data)
                     }
                     is Resource.Error -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
                         disableButtons()
-                        binding.progressBar.isVisible = true
+                        binding.animLoading.isVisible = true
+                        binding.animLoading.playAnimation()
                     }
                 }
             }
@@ -112,15 +119,16 @@ class ExchangeFragment : BaseFragment<FragmentExchangeBinding>(FragmentExchangeB
             viewModel.exchangeResponse.collect {
                 when (it) {
                     is Resource.Success -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         showExchangeResult(it.data)
                     }
                     is Resource.Error -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
-                        binding.progressBar.isVisible = true
+                        binding.animLoading.isVisible = true
+                        binding.animLoading.playAnimation()
                     }
                 }
             }

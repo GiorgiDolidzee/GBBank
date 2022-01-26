@@ -74,4 +74,5 @@
     <string name="profile_photo_changed">Profile Photo Changed</string>
     <string name="save">Save</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="transfer">Transfer</string>
 </resources>

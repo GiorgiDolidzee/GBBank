@@ -12,7 +12,7 @@ import javax.inject.Inject
 class DbAddBalanceRepositoryImpl @Inject constructor(
     private val auth: FirebaseAuth,
     private val db: FirebaseDatabase,
-    private val responseHandler: ResponseHandler,
+    private val responseHandler: ResponseHandler
 ) : DbAddBalanceRepository {
 
     override suspend fun addBalance(amount: String, currentDate: String) : Resource<Task<Void>> =

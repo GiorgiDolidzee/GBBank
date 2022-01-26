@@ -42,15 +42,16 @@ class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding
             viewModel.cryptoResponse.collect {
                 when (it) {
                     is Resource.Success -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         initRecyclerView(it.data)
                     }
                     is Resource.Error -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         view?.showSnackBar(it.errorMessage!!)
                     }
                     is Resource.Loading -> {
-                        binding.progressBar.isVisible = true
+                        binding.animLoading.isVisible = true
+                        binding.animLoading.playAnimation()
                     }
                 }
             }

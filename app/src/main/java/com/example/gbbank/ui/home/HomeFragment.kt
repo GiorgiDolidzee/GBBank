@@ -27,6 +27,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         listener()
     }
 
+    private fun listener() {
+        binding.btnDeposit.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDepositFragment(
+                lastBalance!!.toFloat()
+            ))
+        }
+    }
+
 
     private fun realTimeCallBack() {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -34,18 +42,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                 when(it) {
                     is Resource.Success -> {
                         enableButtons()
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         binding.tvName.text = it.data?.firstName
                         lastBalance = it.data?.balance
                         balanceAnim(it.data?.balance!!.toFloat(), it.data.balance.toString().length)
                         binding.tvFullName.text = it.data.firstName?.plus(" ").plus(it.data.lastName)
                     }
                     is Resource.Error -> {
-                        binding.progressBar.isVisible = false
+                        binding.animLoading.isVisible = false
                         view?.showSnackBar(it.errorMessage.toString())
                     }
                     is Resource.Loading -> {
-                        binding.progressBar.isVisible = true
+                        binding.animLoading.isVisible = true
+                        binding.animLoading.playAnimation()
                         disableButtons()
                     }
                 }
@@ -61,15 +70,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             binding.tvBalance.setText(number)
         }
         animator.start()
-    }
-
-    private fun listener() {
-        binding.btnDeposit.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDepositFragment(
-                lastBalance!!.toFloat()
-            ))
-        }
-
     }
 
     private fun disableButtons() {
