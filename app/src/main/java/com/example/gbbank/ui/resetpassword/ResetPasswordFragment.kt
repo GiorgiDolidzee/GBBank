@@ -41,15 +41,16 @@ class ResetPasswordFragment :
                 viewModel.resetPasswordResponse.collect {
                     when (it) {
                         is Resource.Success -> {
-                            progressBar.isVisible = false
+                            animLoading.isVisible = false
                             findNavController().safeNavigate(ResetPasswordFragmentDirections.actionResetPasswordFragmentToLoginFragment())
                         }
                         is Resource.Error -> {
-                            progressBar.isVisible = false
+                            animLoading.isVisible = false
                             view?.showSnackBar(it.errorMessage.toString())
                         }
                         is Resource.Loading -> {
-                            progressBar.isVisible = true
+                            animLoading.isVisible = true
+                            animLoading.playAnimation()
                         }
                     }
                 }

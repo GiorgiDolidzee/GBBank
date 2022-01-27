@@ -12,9 +12,17 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
+            app:enterAnim="@anim/slide_in_fragment"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_fragment"
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:enterAnim="@anim/slide_in_fragment"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_fragment"
             app:destination="@id/resetPasswordFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
@@ -29,6 +37,10 @@
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
+            app:enterAnim="@anim/slide_out_fragment"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in_fragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
@@ -38,6 +50,10 @@
         tools:layout="@layout/fragment_reset_password">
         <action
             android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+            app:enterAnim="@anim/slide_out_fragment"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in_fragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
@@ -47,7 +63,11 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_depositFragment"
-            app:destination="@id/depositFragment" />
+            app:destination="@id/depositFragment"
+            app:enterAnim="@anim/slide_in_fragment"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_fragment" />
     </fragment>
     <fragment
         android:id="@+id/depositFragment"
@@ -57,6 +77,10 @@
         <action
             android:id="@+id/action_depositFragment_to_homeFragment"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_out_fragment"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in_fragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
         <argument
@@ -75,7 +99,11 @@
         tools:layout="@layout/fragment_crypto">
         <action
             android:id="@+id/action_cryptoFragment_to_openedCryptoFragment"
-            app:destination="@id/openedCryptoFragment" />
+            app:destination="@id/openedCryptoFragment"
+            app:enterAnim="@anim/slide_in_fragment"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_fragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -85,6 +113,10 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_out_fragment"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in_fragment"
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -121,6 +153,13 @@
         <argument
             android:name="lowPrice"
             app:argType="float" />
+        <action
+            android:id="@+id/action_openedCryptoFragment_to_cryptoFragment"
+            app:destination="@id/cryptoFragment"
+            app:enterAnim="@anim/slide_out_fragment"
+            app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_out"
+            app:popExitAnim="@anim/slide_in_fragment" />
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"

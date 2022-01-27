@@ -121,15 +121,13 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animLoading"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:alpha="0.9"
-        android:background="@drawable/rectangle_shape"
-        android:elevation="15dp"
-        android:padding="10dp"
-        android:visibility="invisible" />
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_loop="true"
+        android:visibility="invisible"/>
 
 </FrameLayout>

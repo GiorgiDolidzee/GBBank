@@ -47,15 +47,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 viewModel.loginResponse.collect {
                     when (it) {
                         is Resource.Success -> {
-                            progressBar.isVisible = false
+                            animLoading.isVisible = false
                             findNavController().safeNavigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
                         }
                         is Resource.Error -> {
-                            progressBar.isVisible = false
+                            animLoading.isVisible = false
                             view?.showSnackBar(it.errorMessage.toString())
                         }
                         is Resource.Loading -> {
-                            progressBar.isVisible = true
+                            animLoading.isVisible = true
+                            animLoading.playAnimation()
                         }
                     }
                 }

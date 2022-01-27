@@ -43,15 +43,16 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     viewModel.registerResponse.collect {
                         when (it) {
                             is Resource.Success -> {
-                                progressBar.isVisible = false
+                                animLoading.isVisible = false
                                 findNavController().safeNavigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
                             }
                             is Resource.Error -> {
-                                progressBar.isVisible = false
+                                animLoading.isVisible = false
                                 view?.showSnackBar(it.errorMessage.toString())
                             }
                             is Resource.Loading -> {
-                                progressBar.isVisible = true
+                                animLoading.isVisible = true
+                                animLoading.playAnimation()
                             }
                         }
                     }
