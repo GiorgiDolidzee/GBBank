@@ -6,6 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gbbank.MainActivity
 import com.example.gbbank.databinding.FragmentLoginBinding
+import com.example.gbbank.extensions.safeNavigate
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
 import com.example.gbbank.utils.Resource
@@ -47,7 +48,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                     when (it) {
                         is Resource.Success -> {
                             progressBar.isVisible = false
-                            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                            findNavController().safeNavigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
                         }
                         is Resource.Error -> {
                             progressBar.isVisible = false

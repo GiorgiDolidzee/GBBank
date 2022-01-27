@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gbbank.databinding.FragmentRegisterBinding
+import com.example.gbbank.extensions.safeNavigate
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
 import com.example.gbbank.utils.Resource
@@ -43,7 +44,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                         when (it) {
                             is Resource.Success -> {
                                 progressBar.isVisible = false
-                                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
+                                findNavController().safeNavigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
                             }
                             is Resource.Error -> {
                                 progressBar.isVisible = false

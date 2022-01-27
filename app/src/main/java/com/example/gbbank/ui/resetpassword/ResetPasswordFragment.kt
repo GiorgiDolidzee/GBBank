@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gbbank.databinding.FragmentResetPasswordBinding
+import com.example.gbbank.extensions.safeNavigate
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
 import com.example.gbbank.utils.Resource
@@ -41,7 +42,7 @@ class ResetPasswordFragment :
                     when (it) {
                         is Resource.Success -> {
                             progressBar.isVisible = false
-                            findNavController().navigate(ResetPasswordFragmentDirections.actionResetPasswordFragmentToLoginFragment())
+                            findNavController().safeNavigate(ResetPasswordFragmentDirections.actionResetPasswordFragmentToLoginFragment())
                         }
                         is Resource.Error -> {
                             progressBar.isVisible = false

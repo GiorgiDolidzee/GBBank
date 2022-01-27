@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gbbank.R
 import com.example.gbbank.databinding.FragmentProfileBinding
+import com.example.gbbank.extensions.safeNavigate
 import com.example.gbbank.extensions.setImage
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
@@ -116,7 +117,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 when(it) {
                     is Resource.Success -> {
                         binding.progressBar.isVisible = false
-                        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
+                        findNavController().safeNavigate(ProfileFragmentDirections.actionProfileFragmentToLoginFragment())
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
