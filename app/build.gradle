@@ -5,6 +5,7 @@ plugins {
     id 'com.google.gms.google-services'
     id("dagger.hilt.android.plugin")
     id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -60,7 +61,6 @@ dependencies {
 
     def bom_version="29.0.1"
     implementation platform("com.google.firebase:firebase-bom:$bom_version")
-    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     def dagger_version="2.38.1"
     implementation("com.google.dagger:hilt-android:$dagger_version")
@@ -100,7 +100,12 @@ dependencies {
 
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
 }
+
 
 
 kapt {

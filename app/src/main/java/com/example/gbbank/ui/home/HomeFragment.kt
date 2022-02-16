@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private val viewModel: HomeViewModel by viewModels()
-    private var lastBalance: Double? = 0.0
+    private var balance: Double? = 0.0
 
     override fun start() {
         val activity = requireActivity() as? MainActivity
@@ -30,7 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun listener() {
         binding.btnDeposit.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDepositFragment(
-                lastBalance!!.toFloat()
+                balance!!.toFloat()
             ))
         }
     }
@@ -38,15 +38,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun realTimeCallBack() {
         viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.realTimeCallBack()
             viewModel.realTimeResponse.collect {
                 when(it) {
                     is Resource.Success -> {
-                        enableButtons()
+                        balance = it.data?.balance
                         binding.animLoading.isVisible = false
                         binding.tvName.text = it.data?.firstName
-                        lastBalance = it.data?.balance
                         balanceAnim(it.data?.balance!!.toFloat(), it.data.balance.toString().length)
                         binding.tvFullName.text = it.data.firstName?.plus(" ").plus(it.data.lastName)
+                        enableButtons()
                     }
                     is Resource.Error -> {
                         binding.animLoading.isVisible = false
@@ -64,13 +65,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private fun balanceAnim(balance: Float, length: Int) {
         val animator = ValueAnimator.ofFloat(0.0F, balance)
-        animator.setDuration(900)
+        animator.duration = 900
         animator.addUpdateListener { animation ->
             val number = animation.animatedValue.toString().take(length)
-            binding.tvBalance.setText(number)
+            binding.tvBalance.text = number
         }
         animator.start()
     }
+
 
     private fun disableButtons() {
         with(binding) {
@@ -78,6 +80,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             btnDeposit.isClickable = false
         }
     }
+
 
     private fun enableButtons() {
         with(binding) {

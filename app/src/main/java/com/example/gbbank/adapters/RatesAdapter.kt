@@ -8,6 +8,7 @@ import com.example.gbbank.model.Rates
 
 class RatesAdapter(private val rates: Rates?) :
     RecyclerView.Adapter<RatesAdapter.RatesViewHolder>() {
+
     inner class RatesViewHolder(val binding: LayoutRatesItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 

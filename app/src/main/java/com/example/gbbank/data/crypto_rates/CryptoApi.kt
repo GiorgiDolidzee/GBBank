@@ -15,4 +15,5 @@ interface CryptoApi {
         @Query("per_page") PerPage: Int = 50,
         @Query("order") Order: String = "market_cap_desc"
     ): Response<List<Crypto>>
+
 }

@@ -8,6 +8,7 @@ import com.google.firebase.auth.AuthResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -15,22 +16,20 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(private val repository: RegisterRepositoryImpl) : ViewModel() {
 
-    val registerResponse = MutableSharedFlow<Resource<AuthResult>>()
+    private val _registerResponse = MutableSharedFlow<Resource<AuthResult>>()
+    val registerResponse : SharedFlow<Resource<AuthResult>> = _registerResponse
 
     fun signUp(firstName: String,
                lastName: String,
                email: String,
-               password: String
-    ) =
+               password: String)
+    =
         viewModelScope.launch {
-            registerResponse.emit(Resource.Loading())
+            _registerResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
-                registerResponse.emit(
+                _registerResponse.emit(
                     repository.register(
-                        firstName,
-                        lastName,
-                        email,
-                        password)
+                        firstName, lastName, email, password)
                 )
             }
         }

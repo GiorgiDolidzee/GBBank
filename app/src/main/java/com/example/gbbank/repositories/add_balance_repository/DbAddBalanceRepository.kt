@@ -4,5 +4,5 @@ import com.example.gbbank.utils.Resource
 import com.google.android.gms.tasks.Task
 
 interface DbAddBalanceRepository {
-    suspend fun addBalance(amount: String, currentDate: String) : Resource<Task<Void>>
+    suspend fun addBalance(amount: Double) : Resource<Void>
 }

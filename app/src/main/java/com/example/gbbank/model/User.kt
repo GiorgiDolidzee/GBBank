@@ -5,11 +5,5 @@ data class User(
     var lastName: String? = "",
     var email: String? = "",
     var photo: String? = "",
-    var balance: Double? = 0.0,
-    var transactions: ArrayList<Transaction>? = arrayListOf()
-) {
-    data class Transaction(
-        var amount: String? = "",
-        var date: String? = ""
-    )
-}
+    var balance: Double? = 0.0
+)

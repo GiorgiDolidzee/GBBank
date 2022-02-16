@@ -7,6 +7,7 @@ import com.example.gbbank.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -16,12 +17,14 @@ class ResetPasswordViewModel @Inject constructor(
     private val repository: ResetPasswordRepositoryImpl
 ) : ViewModel() {
 
-    var resetPasswordResponse = MutableSharedFlow<Resource<String>>()
+    private val _resetPasswordResponse = MutableSharedFlow<Resource<String>>()
+    val resetPasswordResponse : SharedFlow<Resource<String>> = _resetPasswordResponse
 
     fun resetPassword(email: String) =
         viewModelScope.launch {
+            _resetPasswordResponse.emit(Resource.Loading())
             withContext(Dispatchers.IO) {
-                resetPasswordResponse.emit(repository.resetPassword(email))
+                _resetPasswordResponse.emit(repository.resetPassword(email))
             }
         }
 

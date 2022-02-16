@@ -13,9 +13,11 @@ import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.properties.Delegates
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -24,18 +26,14 @@ class HomeViewModel @Inject constructor(
     private val responseHandler: ResponseHandler
 ) : ViewModel() {
 
-    val realTimeResponse = MutableSharedFlow<Resource<User>>()
-    val lastBalanceValue = MutableSharedFlow<Double>()
-
-    init {
-        realTimeCallBack()
-    }
+    private val _realTimeResponse = MutableSharedFlow<Resource<User>>()
+    val realTimeResponse : SharedFlow<Resource<User>> = _realTimeResponse
 
      fun realTimeCallBack() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 try {
-                    realTimeResponse.emit(Resource.Loading())
+                    _realTimeResponse.emit(Resource.Loading())
                     val currentUser = auth.currentUser?.uid
                     val dbReference = db.getReference("UserInfo")
 
@@ -43,8 +41,7 @@ class HomeViewModel @Inject constructor(
                         override fun onDataChange(snapshot: DataSnapshot) {
                             viewModelScope.launch {
                                 val user = snapshot.getValue(User::class.java)
-                                responseHandler.handleSuccess(realTimeResponse.emit(Resource.Success(user!!)))
-                                lastBalanceValue.emit(user.balance!!)
+                                responseHandler.handleSuccess(_realTimeResponse.emit(Resource.Success(user!!)))
                             }
                         }
 

@@ -49,6 +49,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     private fun realTimeCallBack() {
         viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.realTimeCallBack()
             viewModel.realTimeResponse.collect {
                 when(it) {
                     is Resource.Success -> {
@@ -87,6 +88,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             setView(dialogLayout)
             show()
         }
+
     }
 
     private fun saveProfilePhoto(url: String) {

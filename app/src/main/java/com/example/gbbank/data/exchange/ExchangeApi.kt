@@ -13,4 +13,5 @@ interface ExchangeApi {
         @Query("from") From: String,
         @Query("to") To: String
     ): Response<ExchangeResponse>
+
 }

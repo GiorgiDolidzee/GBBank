@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.gbbank.MainActivity
 import com.example.gbbank.R
 import com.example.gbbank.databinding.FragmentDepositBinding
+import com.example.gbbank.extensions.safeNavigate
 import com.example.gbbank.extensions.showSnackBar
 import com.example.gbbank.ui.base.BaseFragment
 import com.example.gbbank.utils.Resource
@@ -35,7 +36,6 @@ class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBind
     private fun listener() {
         binding.btnAddToBalance.setOnClickListener {
             val amount = binding.etAmount.text.toString()
-            if("," in amount) { amount.replace(",", ".") }
             addToBalance(amount)
         }
 
@@ -44,13 +44,11 @@ class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBind
         }
     }
 
-    @SuppressLint("SimpleDateFormat")
-    private fun addToBalance(amount: String) {
+
+    private fun addToBalance(deposit: String) {
         viewLifecycleOwner.lifecycleScope.launch {
-            val newBalance: Double = args.oldBalance.toDouble() + amount.toDouble()
-            val sdf = SimpleDateFormat("dd/M/yyyy")
-            val currentDate = sdf.format(Date())
-            viewModel.addBalance(newBalance.toString().trim(), currentDate)
+            val oldBalance = args.oldBalance
+            viewModel.addBalance(oldBalance, deposit)
             viewModel.addBalanceResponse.collect {
                 when(it) {
                     is Resource.Success -> {
@@ -59,12 +57,12 @@ class DepositFragment : BaseFragment<FragmentDepositBinding>(FragmentDepositBind
                         binding.animBackground.isVisible = true
                         binding.animSuccessful.playAnimation()
                         delay(500)
-                        view?.showSnackBar("\uD83D\uDE80 $amount₾ added to balance")
+                        view?.showSnackBar("\uD83D\uDE80 $deposit₾ added to balance")
                         playSound()
                         delay(1000)
                         binding.animSuccessful.isVisible = false
                         binding.animBackground.isVisible = false
-                        findNavController().navigate(DepositFragmentDirections.actionDepositFragmentToHomeFragment())
+                        findNavController().safeNavigate(DepositFragmentDirections.actionDepositFragmentToHomeFragment())
                     }
                     is Resource.Error -> {
                         binding.progressBar.isVisible = false
