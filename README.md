@@ -1,7 +1,6 @@
 # GB Bank
 GB Bank is a digital bank to manage your balance, track exchange rates,
-and ease your life. Our mobile bank project is developed for the TBC Bank
-technical assignment. GB Bank is a unique bank as it provides exchange rates,
+and ease your life. GB Bank is a unique bank as it provides exchange rates,
 has a built-in currency converter, and provides real-time cryptocurrency
 information, such as maximum and minimum value in 24 hours, rank, and so on.
   #
