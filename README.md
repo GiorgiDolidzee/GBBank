@@ -65,4 +65,4 @@ for **dependency injection** and [Retrofit2](https://github.com/square/retrofit)
 GB Bank application uses [Google's Firebase](https://firebase.google.com/) for most of its parts.
 It uses **Firebase Authentication** and **Realtime Database** features from **Google**.
 App also uses **TBC Bank's API** for [exchange rates](https://developers.tbcbank.ge/reference/exchangerates-get-commercial-rates-api) and [currency converting](https://developers.tbcbank.ge/reference/exchangerates-convert-with-commercial-rates-api) and
-**CoinGecko's API** for [cryptocurrency information](https
+**CoinGecko's API** for [cryptocurrency information](https://www.coingecko.com/en/api/documentation).
