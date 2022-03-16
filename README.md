@@ -23,12 +23,6 @@ Upon logging in for the first time, a user sees a login screen,
 where they can choose whether they want to log in or sign up.
 After user logs into their account, they are on their home screen.
 The application has **Bottom Navigation Menu** so that users
-can easily navigate between fragments, such as the *Home screen*, *exchangeTechnical documentation
-
-Upon logging in for the first time, a user sees a login screen,
-where they can choose whether they want to log in or sign up.
-After user logs into their account, they are on their home screen.
-The application has **Bottom Navigation Menu** so that users
 can easily navigate between fragments, such as the *Home screen*, *exchange rates
 screen*, *cryptocurrency screen* and *user profile screen*.
 
