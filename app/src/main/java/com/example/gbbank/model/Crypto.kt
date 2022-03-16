@@ -3,7 +3,6 @@ package com.example.gbbank.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class Crypto(
     @SerializedName("ath")
     val ath: Double? = null,
@@ -56,7 +55,7 @@ data class Crypto(
     @SerializedName("total_supply")
     val totalSupply: Double? = null,
     @SerializedName("total_volume")
-    val totalVolume: Long? = null
+    val totalVolume: String? = null
 )
 
 data class Roi(

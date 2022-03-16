@@ -10,14 +10,17 @@ import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceReposi
 import com.example.gbbank.repositories.add_balance_repository.DbAddBalanceRepositoryImpl
 import com.example.gbbank.repositories.change_password_repository.ChangePasswordRepository
 import com.example.gbbank.repositories.change_password_repository.ChangePasswordRepositoryImpl
+import com.example.gbbank.repositories.crypto_repository.CryptoRepository
 import com.example.gbbank.repositories.crypto_repository.CryptoRepositoryImpl
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepository
 import com.example.gbbank.repositories.db_add_user_repository.DbAddUserRepositoryImpl
 import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepository
 import com.example.gbbank.repositories.edit_profile_photo_repositry.EditProfileRepositoryImpl
+import com.example.gbbank.repositories.exchange_repository.ExchangeRepository
 import com.example.gbbank.repositories.exchange_repository.ExchangeRepositoryImpl
 import com.example.gbbank.repositories.login_repository.LoginRepository
 import com.example.gbbank.repositories.login_repository.LoginRepositoryImpl
+import com.example.gbbank.repositories.rates_repository.RatesRepository
 import com.example.gbbank.repositories.rates_repository.RatesRepositoryImpl
 import com.example.gbbank.repositories.register_repository.RegisterRepository
 import com.example.gbbank.repositories.register_repository.RegisterRepositoryImpl
@@ -90,7 +93,7 @@ object AppModule {
     fun provideCryptoRepository(
         api: CryptoApi,
         handler: ResponseHandler
-    ): CryptoRepositoryImpl = CryptoRepositoryImpl(api, handler)
+    ): CryptoRepository = CryptoRepositoryImpl(api, handler)
 
     @Provides
     @Singleton
@@ -106,7 +109,7 @@ object AppModule {
     fun provideRatesRepository(
         api: RatesApi,
         handler: ResponseHandler
-    ): RatesRepositoryImpl = RatesRepositoryImpl(api, handler)
+    ): RatesRepository = RatesRepositoryImpl(api, handler)
 
 
     @Provides
@@ -123,7 +126,7 @@ object AppModule {
     fun provideExchangeRepository(
         api: ExchangeApi,
         handler: ResponseHandler
-    ): ExchangeRepositoryImpl = ExchangeRepositoryImpl(api, handler)
+    ): ExchangeRepository = ExchangeRepositoryImpl(api, handler)
 
     @Provides
     @Singleton

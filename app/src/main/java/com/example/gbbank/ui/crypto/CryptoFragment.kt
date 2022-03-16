@@ -1,5 +1,6 @@
 package com.example.gbbank.ui.crypto
 
+import android.util.Log
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -48,6 +49,7 @@ class CryptoFragment : BaseFragment<FragmentCryptoBinding>(FragmentCryptoBinding
                     is Resource.Error -> {
                         binding.animLoading.isVisible = false
                         view?.showSnackBar(it.errorMessage!!)
+                        Log.d("TAG", it.errorMessage.toString())
                     }
                     is Resource.Loading -> {
                         binding.animLoading.isVisible = true
